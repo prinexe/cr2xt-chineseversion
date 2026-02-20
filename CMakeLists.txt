@@ -7,34 +7,49 @@ set(CR2XT_VERSION_MINOR 9)
 set(CR2XT_VERSION_PATCH 2)
 set(CR2XT_VERSION "${CR2XT_VERSION_MAJOR}.${CR2XT_VERSION_MINOR}.${CR2XT_VERSION_PATCH}")
 
-# Get git version information (tag or short hash)
+# Get git version information (short commit hashes for parent and submodules)
 find_package(Git QUIET)
 if(GIT_FOUND)
-    # Try to get version from git describe (tags)
+    # Parent project hash
     execute_process(
-        COMMAND ${GIT_EXECUTABLE} describe --tags --always
+        COMMAND ${GIT_EXECUTABLE} rev-parse --short HEAD
         WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
         OUTPUT_VARIABLE CR2XT_GIT_VERSION
         OUTPUT_STRIP_TRAILING_WHITESPACE
         ERROR_QUIET
-        RESULT_VARIABLE GIT_DESCRIBE_RESULT
+        RESULT_VARIABLE GIT_HASH_RESULT
     )
-    if(NOT GIT_DESCRIBE_RESULT EQUAL 0 OR CR2XT_GIT_VERSION STREQUAL "")
-        # Fallback to short commit hash
-        execute_process(
-            COMMAND ${GIT_EXECUTABLE} rev-parse --short HEAD
-            WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
-            OUTPUT_VARIABLE CR2XT_GIT_VERSION
-            OUTPUT_STRIP_TRAILING_WHITESPACE
-            ERROR_QUIET
-            RESULT_VARIABLE GIT_HASH_RESULT
-        )
-        if(NOT GIT_HASH_RESULT EQUAL 0)
-            set(CR2XT_GIT_VERSION "")
-        endif()
+    if(NOT GIT_HASH_RESULT EQUAL 0)
+        set(CR2XT_GIT_VERSION "")
+    endif()
+    # crqt-ng submodule hash
+    execute_process(
+        COMMAND ${GIT_EXECUTABLE} rev-parse --short HEAD
+        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/crqt-ng
+        OUTPUT_VARIABLE CRQT_GIT_HASH
+        OUTPUT_STRIP_TRAILING_WHITESPACE
+        ERROR_QUIET
+        RESULT_VARIABLE CRQT_HASH_RESULT
+    )
+    if(NOT CRQT_HASH_RESULT EQUAL 0)
+        set(CRQT_GIT_HASH "")
+    endif()
+    # crengine-ng submodule hash
+    execute_process(
+        COMMAND ${GIT_EXECUTABLE} rev-parse --short HEAD
+        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/crengine-ng
+        OUTPUT_VARIABLE CRENGINE_GIT_HASH
+        OUTPUT_STRIP_TRAILING_WHITESPACE
+        ERROR_QUIET
+        RESULT_VARIABLE CRENGINE_HASH_RESULT
+    )
+    if(NOT CRENGINE_HASH_RESULT EQUAL 0)
+        set(CRENGINE_GIT_HASH "")
     endif()
 else()
     set(CR2XT_GIT_VERSION "")
+    set(CRQT_GIT_HASH "")
+    set(CRENGINE_GIT_HASH "")
 endif()
 
 # Build full version string
@@ -115,9 +130,11 @@ endif()
 # Set data directory for umbrella build
 set(CRENGINE_NG_DATA_DIR "${CMAKE_CURRENT_SOURCE_DIR}/crengine-ng/crengine/data")
 
-# Pass cr2xt version to crqt-ng (will be empty if built standalone)
+# Pass cr2xt version and submodule hashes to crqt-ng (will be empty if built standalone)
 set(CR2XT_VERSION_FULL "${CR2XT_VERSION_FULL}" CACHE STRING "cr2xt umbrella project version" FORCE)
 set(CR2XT_VERSION "${CR2XT_VERSION}" CACHE STRING "cr2xt version (without git hash)" FORCE)
+set(CRQT_GIT_HASH "${CRQT_GIT_HASH}" CACHE STRING "crqt-ng submodule git hash" FORCE)
+set(CRENGINE_GIT_HASH "${CRENGINE_GIT_HASH}" CACHE STRING "crengine-ng submodule git hash" FORCE)
 
 # Build crqt-ng (depends on crengine-ng)
 add_subdirectory(crqt-ng)

@@ -422,12 +422,22 @@ build_single_arch() {
     log_gray "  Prefix path: ${prefix_path}"
     log_gray "  PKG_CONFIG_PATH: ${pkg_config_path}"
 
+    # Prevent CMake find_library() from picking up wrong-arch libraries
+    # (e.g. x86_64 libs in /usr/local when building arm64)
+    local ignore_prefix_arg=""
+    if [ "$arch" = "arm64" ]; then
+        ignore_prefix_arg="-DCMAKE_IGNORE_PREFIX_PATH=/usr/local"
+    elif [ "$arch" = "x86_64" ]; then
+        ignore_prefix_arg="-DCMAKE_IGNORE_PREFIX_PATH=/opt/homebrew"
+    fi
+
     PKG_CONFIG_PATH="${pkg_config_path}" cmake -B "${build_dir}" -G Ninja -S "${PROJECT_ROOT}" \
         -DCMAKE_BUILD_TYPE=Release \
         -DUSE_QT=QT6 \
         -DUSE_COLOR_BACKBUFFER=OFF \
         -DGRAY_BACKBUFFER_BITS=2 \
         -DCMAKE_PREFIX_PATH="${prefix_path}" \
+        ${ignore_prefix_arg} \
         -DCMAKE_INSTALL_PREFIX="${install_prefix}" \
         -DCMAKE_OSX_DEPLOYMENT_TARGET="${MACOS_TARGET}" \
         -DCMAKE_OSX_ARCHITECTURES="${arch}" \

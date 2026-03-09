@@ -3,9 +3,6 @@
 E-book to XTC format converter based on Cool Reader and crengine.
 
 ## About
-1. 在原版的基础上做了基础汉化
-2. 新增了注脚的引用样式
-3. 在页眉元素里增加了章节名、章节页码、章节总页数选项
 
 **cr2xt** is an umbrella project that combines two forked repositories into a unified build:
 

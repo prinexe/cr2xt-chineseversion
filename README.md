@@ -1,8 +1,18 @@
-# cr2xt
+# cr2xt-chineseversion
 
 E-book to XTC format converter based on Cool Reader and crengine.
 
 ## About
+
+**cr2xt-chineseversion** 是基于原版 [cr2xt](https://github.com/CrazyCoder/cr2xt) 深度定制的中文特供版本。
+
+### ✨ 本地化与新特性 (Chinese Version Features)
+
+1. 在原版的基础上做了**基础汉化**，界面更加符合中文用户习惯。
+2. 新增了**注脚的引用样式**。
+3. 在页眉元素里增加了**章节名、章节页码、章节总页数**选项，方便在电纸书上阅读时掌握进度。
+
+<img src="docs/chinese-features.png" alt="Chinese version features">
 
 **cr2xt** is an umbrella project that combines two forked repositories into a unified build:
 

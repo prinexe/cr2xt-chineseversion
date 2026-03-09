@@ -1,0 +1,1317 @@
+2025-11-03  Aleksey Chernov  <valexlin@gmail.com>
+
+	* Version 0.9.13 released.
+	==========================
+
+	Tag sources with `0.9.13'.
+
+	  Main changes:
+	Support for the WebP image format has been implemented.
+	Bug fixes.
+
+	See below for other changes.
+
+2025-11-03  Aleksey Chernov  <valexlin@gmail.com>
+
+	Update README.md: updated dependency installation command on Ubuntu (libwebp).
+
+	Update crengine/tests/CMakeLists.txt: the old way of specifying the C++ standard has been returned.
+
+	Bump GoogleTest to 1.17.0
+
+	Update .gitlab-ci.yml: use libwebp library.
+
+2025-11-02  Aleksey Chernov  <valexlin@gmail.com>
+
+	cmake: move all used external libraries from the public section to the private link libraries section.
+
+	Update CMakeLists.txt: use CMAKE_PREFIX_PATH for library search path.
+
+2025-11-01  Aleksey Chernov  <valexlin@gmail.com>
+
+	thirdparty/nanosvg: update upstream.txt: last applied commit from upstream
+
+	thirdparty/nanosvg: updated to latest version from upstream
+
+	Increased FORMATTING_VERSION_ID to force reformatting of books that exists in the cache (webp support added).
+
+2025-10-31  Aleksey Chernov  <valexlin@gmail.com>
+
+	Update README.md: added information about WebP image format support.
+
+	unittests: fixed a bug in calculating the number of different image pixels when comparing two images.
+
+	Support for the webp image format has been implemented using the libwebp library.
+
+2025-10-30  Aleksey Chernov  <valexlin@gmail.com>
+
+	cmake: find libwebp library.
+
+	cmake: remove cmake_minimum_required() instruction from child subprojects.
+
+2025-06-19  Aleksey Chernov  <valexlin@gmail.com>
+
+	Moved availability check for srandom() and random() functions from main CMakeLists.txt to crengine/Tools/blend-algo-test/ and added missing relevant compiler defines.
+
+2025-06-18  Aleksey Chernov  <valexlin@gmail.com>
+
+	Fixed warning in LVDocView:getTimeString(): output between 5 and 15 bytes into a destination of size 6.
+
+	Fixed warning in LVDocView:loadDocumentInt(): «packSize» may be used uninitialized.
+
+	Fixed warnings in thirdparty/rfc6234-shas: mismatched functions declaration.
+
+	Fixed compiler warning in lvptrvec.h: template-id not allowed for destructor in C++20.
+
+	Fixes in crengine/Tools/blend-algo-test: checking the availability of the srandom() and random() functions, adding program arguments for selecting the operating mode.
+
+2025-03-10  Aleksey Chernov  <valexlin@gmail.com>
+
+	thirdparty/nanosvg: update upstream.txt: last applied commit from upstream
+
+	thirdparty/nanosvg: updated to latest version from upstream
+
+2024-11-24  Aleksey Chernov  <valexlin@gmail.com>
+
+	Reformat source using clang-format-18
+
+	Update .gitlab-ci.yml: use Ubuntu 24.04 LTS, update clang-format configuration, don't specify clang-format version.
+
+2024-09-05  Aleksey Chernov  <valexlin@gmail.com>
+
+	Fixed potential buffer overflow in LVDocView::exportBookmarks.
+
+
+2024-08-23  Aleksey Chernov  <valexlin@gmail.com>
+
+	* Version 0.9.12 released.
+	==========================
+
+	Tag sources with `0.9.12'.
+
+	  Main changes:
+	Optimization of working with strings.
+	Fixed compilation errors on FreeBSD.
+	LVDocView: Added functions to set and get the decimal point character.
+	Parsing of Markdown files has been implemented using the MD4C library.
+	Added the ability to specify page insets so that they do not overlap text.
+	Updating thirdparty/nanosvg from upstream to the latest version.
+
+	See below for other changes.
+
+2024-08-23  Aleksey Chernov  <valexlin@gmail.com>
+
+	thirdparty/nanosvg: updated upstream.txt: last applied commit from upstream
+
+	thirdparty/nanosvg: updated to latest version from upstream
+
+2024-08-16  Aleksey Chernov  <valexlin@gmail.com>
+
+	LVDocView::setPageInsets(): define limits for insets values; allowPageHeaderOverlap
+	argument is not ignored when the value of insets is unchanged.
+
+2024-08-12  Aleksey Chernov  <valexlin@gmail.com>
+
+	In the "scroll" view mode, indents have been added at the beginning and end of the
+	document so that the text is not overlapped by the vertical part of the page insets.
+
+2024-08-11  Aleksey Chernov  <valexlin@gmail.com>
+
+	Deprecated use of unsafe `sprintf()` function, using `snprintf()` instead.
+	Excluding third party sources.
+
+	Added rendering tests to check the page insets feature.
+
+	Added the ability to specify page insets so that they do not overlap text.
+	This can be used, for example, to specify display cutouts on mobile devices
+	in full-screen mode.
+
+	Added lvInsets class to allow specifying insets for a page.
+
+2024-08-07  Aleksey Chernov  <valexlin@gmail.com>
+
+	Update .gitlab-ci.yml: use md4c instead of cmark_gfm
+
+	Update README.md: added information about using the MD4C library.
+
+	Parsing of Markdown files has been implemented using the MD4C library.
+	MD4C is now used by default to process Markdown files.
+
+	md4c thirdparty has been added to the crengine-ng build system
+
+	thirdparty/md4c: added label-file to track updates in upstream
+
+	Added new thirdparty 'MD4C'.
+	MD4C stands for "Markdown for C" and that's exactly what this project is about.
+	Origin: https://github.com/mity/md4c
+	Last commit: Sun Feb 25 20:51:06 2024 +0100
+
+2024-08-06  Aleksey Chernov  <valexlin@gmail.com>
+
+	Removed disabled code for backtrace output for Android platform.
+	If necessary, this can be implemented directly in the Android application.
+
+2024-06-22  Aleksey Chernov  <valexlin@gmail.com>
+
+	Bump GoogleTest to 1.14.0
+
+2024-06-21  Aleksey Chernov  <valexlin@gmail.com>
+
+	Added unit test to check lString32::atod() function (new test suite
+	'StringFuncsTests' added).
+	Unit test `WTF8EncodinsTests.WTF8ConversionTests` moved to test suite 'StringFuncsTests'.
+
+	lString32::atod() fixes: correct processing of strings starting with a decimal point.
+
+2024-06-20  Aleksey Chernov  <valexlin@gmail.com>
+
+	Update crengine/src/lvimg/lvsvgimagesource.cpp: use CRLog instead of printf().
+
+2024-05-30  Aleksey Chernov  <valexlin@gmail.com>
+
+	Since new public methods of the LVDocView class have been added,
+	the API version of the library has been increased.
+
+	LVDocView: Added functions to set and get the decimal point character.
+	They can be used when selecting a specific locale.
+	This character is then used to display read percentage in the page header/footer.
+
+2024-05-27  Aleksey Chernov  <valexlin@gmail.com>
+
+	Bump version to 0.9.12-beta1
+
+	Added flag to the DCMD_SELECT_* commands family parameter to prevent the view
+	position from changing when text selection changes.
+
+2024-04-21  Aleksey Chernov  <valexlin@gmail.com>
+
+	crengine/tests/tests_props.cpp: closing the file descriptor before comparing
+	with the reference file.
+
+	crengine/Tools/zip-test/: fixed a bug due to which the last piece of data
+	was not written to the output file.
+
+	cmake: check for lseek64() function instead of checking OS type.
+
+2024-04-15  Aleksey Chernov  <valexlin@gmail.com>
+
+	Update README.md
+
+2024-04-14  Aleksey Chernov  <valexlin@gmail.com>
+
+	Don't try to use libintl on MacOS.
+
+	cmake: allow sanitizer to be used on BSD OS family
+
+	cmake: check libintl library
+
+	Don't use lseek64() function on FreeBSD
+
+2024-04-06  Aleksey Chernov  <valexlin@gmail.com>
+
+	Update ChangeLog: typo fixed
+
+2024-03-19  Aleksey Chernov  <valexlin@gmail.com>
+
+	Optimization of working with strings: when allocating a memory buffer for an array
+	of characters, the actual size of the array is the smallest number that is greater
+	than the required and a multiple of STR_BLOCK_SZ.
+	This significantly reduces the number of memory allocations required when adding
+	characters to a string character by character.
+	This is relevant when parsing files with long strings (tens and hundreds of
+	thousands of characters).
+	Speeds up the work of a debug build several times with the sanitizer enabled
+	(using gcc on Linux). The release build also works faster, but only by ~4%.
+
+2024-03-08  Aleksey Chernov  <valexlin@gmail.com>
+
+	The compilation flags are configured not to interfere with the "RelWithDebInfo" build type.
+
+
+2024-03-03  Aleksey Chernov  <valexlin@gmail.com>
+
+	* Version 0.9.11 released.
+	==========================
+
+	Tag sources with `0.9.11'.
+
+	  Main changes:
+	Improvements in the document cache, in particular support for long attribute values,
+	for the correct operation of embedded images encoded in base64.
+	Enabled special handling of em dashes through the introduction of the 
+	lb_get_char_class() function in libunibreak-6.0.
+	Improved RTF file format support: more correct detection of document text encoding.
+	Refusal to open a file as text if the document type could not be determined.
+	Added a new document property: DOC_PROP_FILE_PACK_SIZE - compressed file size in
+	the archive if the book file is in the archive.
+	Updating thirdparty/cmark_gfx and thirdparty/nanosvg from upstream to the latest version.
+	Improved handling of document metadata.
+	Non-critical bug fixes.
+	Minor improvements to unit tests.
+
+	See below for other changes.
+
+2024-03-03  Aleksey Chernov  <valexlin@gmail.com>
+
+	Update .gitlab-ci.yml: bump libunibreak to 6.1
+
+2024-03-01  Aleksey Chernov  <valexlin@gmail.com>
+
+	Update crengine/tests/tests_doc_with_base64_img.cpp: cleanup
+
+	Increased CACHE_FILE_FORMAT_VERSION to force previously cached documents to be
+	reformatted because they may contain incomplete attribute values.
+	See the previous commit for details.
+
+	SerialBuf class: added the ability to save strings longer than 65536 bytes, 
+	this is necessary for serializing long attributes of xml or html tags, for example,
+	when caching an html document that contains embedded images encoded using base64.
+
+	In addition, the unsigned type lUInt32 is used for the buffer size and position
+	instead of the signed int.
+	A check for integer buffer size overflow has also been added.
+
+2024-02-29  Aleksey Chernov  <valexlin@gmail.com>
+
+	Added a test showing incorrect caching of a document with too long attribute values.
+	In this test, a base64 encoded image is used as the long attribute value.
+
+2024-02-28  Aleksey Chernov  <valexlin@gmail.com>
+
+	Update CMakeLists.txt: minor fixes
+
+	Update .gitlab-ci.yml: bump libunibreak to 6.0
+
+2024-02-27  Aleksey Chernov  <valexlin@gmail.com>
+
+	Enabled the use of the new libunibreak function lb_get_char_class(), introduced in
+	version 6.0.
+
+2024-02-12  Aleksey Chernov  <valexlin@gmail.com>
+
+	RTF file support: when processing the '\lang', '\deflang', '\deflangfe' instructions,
+	don't set the text encoding to match the specified language if the '\ansicpg' instruction
+	was previously processed, which explicitly specifies which text encoding to use.
+
+2023-12-11  Aleksey Chernov  <valexlin@gmail.com>
+
+	thirdparty/nanosvg: updated upstream.txt: last applied commit from upstream
+
+	thirdparty/nanosvg: updated to latest version from upstream
+
+2023-11-20  Aleksey Chernov  <valexlin@gmail.com>
+
+	LVDocView::doCommand(): DCMD_SET_REQUESTED_DOM_VERSION, DCMD_RENDER_BLOCK_RENDERING_FLAGS
+	behavior has changed: not only changes these properties, but also applies related
+	properties if there is a switch to legacy rendering or vice versa (embedded langs,
+	hyphenations).
+
+2023-11-16  Aleksey Chernov  <valexlin@gmail.com>
+
+	Unit test suite 'DocParseTests': added 'OpenBrokenTextFile' test to check that
+	a broken text file cannot be opened.
+
+2023-11-15  Aleksey Chernov  <valexlin@gmail.com>
+
+	Revert "Add LVTextRobustParser to force using utf-8 encoding to open unknown format
+	text files, instead of a very unfriendly 'Error: unknown format' message."
+
+2023-11-01  Aleksey Chernov  <valexlin@gmail.com>
+
+	LVZipArc::ReadContents(): fixed type casting of an unsigned type value to a signed type,
+	which did not work correctly on some compilers.
+
+2023-10-24  Aleksey Chernov  <valexlin@gmail.com>
+
+	Update .gitlab-ci.yml: bump libunibreak to 5.1, cleanup.
+
+2023-10-17  Aleksey Chernov  <valexlin@gmail.com>
+
+	Update README.md: formating fixed
+
+	Unit test suite 'DocPropsTests': test new document property 'DOC_PROP_FILE_PACK_SIZE'.
+
+	New document property added 'DOC_PROP_FILE_PACK_SIZE' - compressed size of the file in
+	archive, if the book file is in an archive.
+
+2023-10-16  Aleksey Chernov  <valexlin@gmail.com>
+
+	Unit test 'TinyDOMTests.testDocumentCaching': added check to see if the document is
+	actually opened from cache.
+
+	Unit test 'BlockWriteCacheTests.blockWriteCacheTest': fixed stack overflow on Windows
+	platform.
+
+	When opening a file using a cache, it is possible that the original file has been moved
+	or a copy of the file is opened in a different path. Document properties are loaded from
+	the cache and in this case, some properties related to the file path will be replaced
+	with outdated ones from the cache. Therefore, after successfully loading data from
+	the cache, it is necessary to restore the original document properties related to the
+	file properties. Also, here added a check for the correspondence of some properties in
+	the cache with the properties of the source document, namely: file size, CRC32 and hash.
+
+2023-10-15  Aleksey Chernov  <valexlin@gmail.com>
+
+	LVDocView::getFileName() fixed: returns the full (absolute) path to the file of the
+	currently open book.
+
+	Unit testing: checking the file properties of a document when opening it from the cache.
+
+	ldomDocument, LVDocView: added methods to check that a document is opened from cache.
+
+2023-10-14  Aleksey Chernov  <valexlin@gmail.com>
+
+	Unit testing: checking a document file property when opening it from a stream.
+
+	LVDocView: reconstructing the full file name when opening a document in an archive
+	(represented as a stream) without specifying the inner file.
+
+	Unit tests added for LVDocView.getFileName(), LVDocView.getFileSize() functions.
+
+	LVDocView: added getFileSize() function to return the file size of the currently open book.
+
+	LVDocView: added getFileName() function to return the full path to the file of the
+	currently open book.
+
+	LVDocView: removed the obsolete ORIGINAL_FILENAME_PATCH macro & the m_originalFilename
+	field with getter/setter.
+
+2023-10-12  Aleksey Chernov  <valexlin@gmail.com>
+
+	LVDocView: reconstructing the full file name when opening a document in an archive
+	without specifying an inner file.
+
+	Don't cast the file size to int type when saving it in document properties.
+	This allows to save the correct size of large files in properties.
+
+	Unit testing: added tests to check document file properties
+
+2023-09-01  Aleksey Chernov  <valexlin@gmail.com>
+
+	thirdparty/cmark-gfm: updated upstream.txt: last applied commit from upstream
+
+	cmark-gfm updated from upstream to 0.29.0.gfm.13
+
+	thirdparty/cmark-gfm: added label-file to track updates in upstream
+
+2023-08-28  Aleksey Chernov  <valexlin@gmail.com>
+
+	Removed useless function 'convertSVGtoPNG()' & file 'thirdparty/nanosvg/src/stb_image_write.h'
+	used in it.
+
+	thirdparty/nanosvg: updated upstream.txt: last applied commit from upstream
+
+	thirdparty/nanosvg: updated to latest version from upstream
+
+	thirdparty/nanosvg: added label-file to track updates in upstream
+
+2023-08-16  Aleksey Chernov  <valexlin@gmail.com>
+
+	Bump version to 0.9.11-beta1
+
+	Unit tests added for LVDocView.getBookCoverImageStream(), LVGetBookCoverStream() functions.
+
+	Added global function LVGetBookCoverStream() to get book cover. Alternatively, to get
+	a book cover image, you can create instance of the class LVDocView, open the book file
+	and call the LVDocView::getBookCoverImageStream() function. But it will be much slower.
+
+2023-08-15  Aleksey Chernov  <valexlin@gmail.com>
+
+	LVDocView refactoring: move implementation defined functions from public to protected
+	section: drawCoverTo(), getCoverPageImage();
+	getCoverPageImageStream() public function renamed to getBookCoverImageStream().
+
+	Simplify DocPropsTests
+
+2023-08-12  Aleksey Chernov  <valexlin@gmail.com>
+
+	Because document properties are cached, we must update the version of the cache file so
+	that the properties in the new format are written to the cache.
+
+2023-08-11  Aleksey Chernov  <valexlin@gmail.com>
+
+	crengine/src/lvdocview.cpp: added omitted 'static', 'const' for some constants.
+
+2023-08-10  Aleksey Chernov  <valexlin@gmail.com>
+
+	lvtinidom.cpp: extractDocAuthors(): when getting the author in the fb2 document,
+	the addition of an extra space has been fixed.
+
+	Unit testing: added tests to check retrieval of some document properties (authors, keywords).
+
+	crengine/tests/tests_textrender.cpp: typo fixed
+
+	When forming such document properties as 'authors' and 'genre' (keywords), the string
+	", " is used as a separator, regardless of the document type (epub, fb2).
+
+2023-07-25  Aleksey Chernov  <valexlin@gmail.com>
+
+	LVFreeTypeFontManager::getFaceListFiltered(): short path to exit when lang tag is invalid.
+
+	unit tests: check parsing empty lang tag.
+
+	CRLocaleData class: added "explicit" keyword to constructor declarations.
+
+	CRLocaleData::parseTag(): short path to exit when lang tag is empty.
+
+	Since the prototypes of some public methods of the LVDocView class have changed,
+	the API version of the library has been increased.
+
+2023-07-16  Aleksey Chernov  <valexlin@gmail.com>
+
+	The `PROP_SHOW_BATTERY_PERCENT` property is processed like the rest of the page
+	header/footer properties to conform to the same style.
+
+	Removed usage of deprecated `LBOOK` macro.
+
+	When calculating the height of the header, do not take into account the height of the
+	battery icons if the battery display is not enabled.
+
+2023-07-02  Aleksey Chernov  <valexlin@gmail.com>
+
+	Revert "LVGammaCorrection::getIndex(): set default/initial value for `index` to
+	`LVGammaCorrection::NoCorrectionIndex`"
+
+2023-06-15  Aleksey Chernov  <valexlin@gmail.com>
+
+	LVHashTable: don't allow setting the table size to zero using the resize() function.
+	This can happen when loading the document cache:
+	lxmlldocbase.cpp: lxmlDocBase::deserializeMaps():
+	```cpp
+	    lUInt32 idmsize;
+	    buf >> idmsize;
+	    _idNodeMap.clear();
+	    if (idmsize < 20000)
+	        _idNodeMap.resize(idmsize * 2);
+	```
+	when `idmsize` is zero. In this case, division by zero will occur when calling
+	the get() function. For example, when you click on a link in a specific document:
+	LVDocView::goLink() -> lxmlDocBase::getNodeById() -> LVHashTable<lUInt32, lInt32>::get()
+
+2023-05-28  Aleksey Chernov  <valexlin@gmail.com>
+
+	renamed: crengine/tests/tests_formating.cpp -> crengine/tests/tests_formatting.cpp
+
+	Updated Gentoo ebuild: don't use GNU FreeFont fonts installed in the system for unit testing.
+
+2023-05-27  Aleksey Chernov  <valexlin@gmail.com>
+
+	Revert "thirdparty/cmark-gfm/CMakeLists.txt: removed deprecated macro."
+
+2023-05-26  Aleksey Chernov  <valexlin@gmail.com>
+
+	Updated Gentoo ebuild: added src_test()
+
+
+2023-05-26  Aleksey Chernov  <valexlin@gmail.com>
+
+	* Version 0.9.10 released.
+	==========================
+
+	Tag sources with `0.9.10'.
+
+	Mostly improvements in unit tests.
+
+2023-05-26  Aleksey Chernov  <valexlin@gmail.com>
+
+	Warning fixed: type ‘struct cp_stat_t’ violates the C++ One Definition Rule [-Wodr]
+
+	Don't use "Roboto" font in unit tests.
+
+	CMakeLists.txt: separated public and private dependency libraries.
+
+	thirdparty/cmark-gfm/CMakeLists.txt: removed deprecated macro.
+
+	Update README.md: added description of OFFLINE_BUILD_MODE option.
+
+	Added offline build mode for cmake. This mode only affects build of unit tests. This mode uses the GoogleTest library installed in the system.
+	The GNU FreeFont fonts must first be copied to the "${CMAKE_BINARY_DIR}/crengine/tests/fonts" folder.
+
+2023-05-24  Aleksey Chernov  <valexlin@gmail.com>
+
+	CMakeLists.txt: added check for the presence of the hb-ft.h file when using the HarfBuzz library.
+
+	Added a test to check the text formatter. This test was originally in cr3wx/src/cr3.cpp
+
+2023-05-22  Aleksey Chernov  <valexlin@gmail.com>
+
+	Added a test to check the property container. This test was originally in cr3wx/src/cr3.cpp
+
+	crengine/tests/tests_docparse.cpp: fixed description of DOCPARSE_REFERENCE_DIR macro
+
+	crengine/src/textlang.h: cleared include section
+
+2023-05-11  Aleksey Chernov  <valexlin@gmail.com>
+
+	Fixed LVDocView::updateScroll(): correct page numbers in `posText`.
+
+	Fixed SIGSEGV in CRDocViewWindow::draw() -> LVDocView::getPageImage() -> LVDocView::checkPos() -> LVDocView::SetPos() -> LVDocView::GetFullHeight() call chain.
+	This can happen when opening another document in scroll view mode.
+
+
+2023-04-23  Aleksey Chernov  <valexlin@gmail.com>
+
+	* Version 0.9.9 released.
+	==========================
+
+	Tag sources with `0.9.9'.
+
+	Fixes large images breaking into two parts.
+
+2023-04-23  Aleksey Chernov  <valexlin@gmail.com>
+
+	Increased FORMATTING_VERSION_ID to force reformatting of books that exists in the cache.
+
+	Partial revert changes in the LVFormatter::allocate() function in commit b72cb8d4f77806d0f1e3dacbdecf29c938b7c894.
+	This change ends up underscaling to smaller images that are taller than the page size.
+	As a result, the PageSplitState::AddLine() function breaks the image into two parts and move part of the image to the next page.
+
+
+2023-04-19  Aleksey Chernov  <valexlin@gmail.com>
+
+	* Version 0.9.8 released.
+	==========================
+
+	Tag sources with `0.9.8'.
+
+	See below for changes.
+
+2023-04-19  Aleksey Chernov  <valexlin@gmail.com>
+
+	Fixed a memory leak related to non-release of fallback fonts.
+
+2023-04-18  Aleksey Chernov  <valexlin@gmail.com>
+
+	The same as 5928641f7d7b9bb514b7b11a221e0d76f84869b6 FreeType fallback fonts: don't reduce number of possible distinct sizes for fallback font. Similar code has been removed from another function.
+
+	Modified local cmark-gfm (thirdparty/cmark-gfm) to be compatible with the crengine-ng build system.
+
+	Update `thirdparty/cmark-gfm` to 0.29.0.gfm.11
+
+	Removed `thirdparty/cmark` from build system
+
+	Removed thirdparty `thirdparty/cmark/`.
+
+	Tune crengine/data/css/markdown.css
+
+2023-04-11  Aleksey Chernov  <valexlin@gmail.com>
+
+	Bump version to 0.9.8-beta3. The version of the library API has been increased, since the prototypes of some public methods have changed (const added).
+
+2023-04-10  Aleksey Chernov  <valexlin@gmail.com>
+
+	Added unittest 'BookmarkGetTitleTests.GetBMTitleInEPUB' for the LVDocView::getBookmarkPosText() function (for epub documents).
+
+2023-04-09  Aleksey Chernov  <valexlin@gmail.com>
+
+	Added unittest 'BookmarkGetTitleTests.GetBMTitleInFB2' for the LVDocView::getBookmarkPosText() function (for fb2 documents).
+
+	ldomNode: added getPrevSibling(), getNextSibling() functions to get the previous or next neighbor.
+
+2023-04-08  Aleksey Chernov  <valexlin@gmail.com>
+
+	Bump GoogleTest to 1.13.0
+
+	Fixed potential buffer overflow in CRFileHistRecord::getLastTimeString()
+
+2023-04-07  Aleksey Chernov  <valexlin@gmail.com>
+
+	LVDocView::getBookmarkPosText() fixed for non-FictionBook documents.
+
+	Update crengine/Tools/qtc-debugger/personaltypes.py: added ldomNode, ldomXPointer decoders. Renamed: personaltypes.py => crengine-ng-dbg-helper.py
+
+	Constify ldomXPointer methods, tinyNodeCollection::getTinyNode(), ldomNode::getXPathSegment().
+
+2023-02-22  Aleksey Chernov  <valexlin@gmail.com>
+
+	crengine/tests: renames files: '^(.*)_tests\.cpp$' -> 'tests_$1\.cpp'
+
+2023-03-18  Aleksey Chernov  <valexlin@gmail.com>
+
+	Bump version to 0.9.8-beta2
+
+	Fixed a bug in LVDocView that prevented navigation history in the Windows version.
+
+	Fixed bug in lString32::rpos() function: wrong character counter direction.
+
+	Add crengine/Tools/qtc-debugger/.gitignore
+
+2023-02-11  Aleksey Chernov  <valexlin@gmail.com>
+
+	Bump version to 0.9.8-beta1
+
+	Update .gitlab-ci.yml: run 'unittests' from '<builddir>/crengine/tests' not '<builddir>'. This is necessary for correct testing of the relative path to absolute conversion functions.
+
+	Fixed tests related to LVGetAbsolutePath() and LVGetCurrentDirectory() functions.
+
+	Tests DocViewFuncsTests.TestGetFileCRC32, DocViewFuncsTests.TestGetFileHash: extended tests for implicitly opening an internal file in an archive.
+
+	Added tests to check the conversion of a relative path to an absolute.
+
+2023-02-09  Aleksey Chernov  <valexlin@gmail.com>
+
+	LVDocView::LoadDocument(): when opening a file, convert the relative name to absolute,  then the full file name will be written to the history log and this will allow  the file to be opened from the history log the next time the client program is started.
+
+
+2023-02-04  Aleksey Chernov  <valexlin@gmail.com>
+
+	* Version 0.9.7 released.
+	==========================
+
+	Tag sources with `0.9.7'.
+
+	  Main changes:
+	Generic font families fixes.
+
+	See below for other changes.
+
+2023-02-04  Aleksey Chernov  <valexlin@gmail.com>
+
+	ImportEpubDocument(): removed redundant LVDocViewCallback::OnLoadFileEnd() function call.
+
+	cmake build system: set shared library version to specify API version.
+
+2023-02-03  Aleksey Chernov  <valexlin@gmail.com>
+
+	LVDocView: default stub document: rename 'CoolReader' to 'coolreader-ng'.
+
+	crengine/Tools/qtc-debugger/personaltypes.py added: Qt Creator debugger helper (decoder for lString8, lString16, lString32).
+
+2023-02-01  Aleksey Chernov  <valexlin@gmail.com>
+
+	Update _clang_format.sh: fix "grep: warning: stray \ before /"
+
+	LVDocView: added setSharedHistory() function. To use one CRFileHist with multiple LVDocView instances.
+
+2023-01-30  Aleksey Chernov  <valexlin@gmail.com>
+
+	crengine/src/lvstsheet.cpp: css parsing changed: when generic font family is found, it is replaced with a real font specified in the settings of generic font families.
+
+	crengine/src/lvdocview.cpp: default css style: specific fonts removed, only generic font families left.
+
+	Update crengine/data/css/*.css: extended the list of monospace fonts for elements that use them ('<pre>', '<code>', etc). Also added a declaration for these elements, which will allow the frontend to override the font used ('$pre.all', etc).
+
+
+2023-01-22  Aleksey Chernov  <valexlin@gmail.com>
+
+	* Version 0.9.6 released.
+	==========================
+
+	Tag sources with `0.9.6'.
+
+	  Main changes:
+	When getting a font based on a node style, do not add the generic font family font
+	to the style's font list. Instead, first obtain a font instance based on the node's
+	style font list only, then only if the required font is not obtained, request the
+	font of the generic font family.
+	Prior to this, if you try to get a font with an italic style when there is no such
+	font variant, instead of using synthetic italic, the generic font family will be
+	selected if it has an italic variant.
+
+
+2023-01-19  Aleksey Chernov  <valexlin@gmail.com>
+
+	* Version 0.9.5 released.
+	==========================
+
+	Tag sources with `0.9.5'.
+
+	  Main changes:
+	Added new global properties: PROP_GENERIC_*_FONT_FACE to specify generic font family faces:
+	PROP_GENERIC_SERIF_FONT_FACE - to specify Serif font
+	PROP_GENERIC_SANS_SERIF_FONT_FACE - to specify Sans Serif font
+	PROP_GENERIC_CURSIVE_FONT_FACE - to specify Cursive font
+	PROP_GENERIC_FANTASY_FONT_FACE - to specify Fantasy font
+	PROP_GENERIC_MONOSPACE_FONT_FACE - to specify Monospace font
+
+	This implements generic font family for the 'font-family' CSS attribute.
+
+	See below for other changes.
+
+2023-01-19  Aleksey Chernov  <valexlin@gmail.com>
+
+	Update crengine/src/mdfmt.cpp: compilation warnings fixed.
+
+	LVFreeTypeFontManager::checkFontLangCompat() function fixed: memory leak & optimisation.
+
+	Added unit tests to check the getFaceListFiltered() and checkFontLangCompat() functions of the LVFontManager class.
+
+	LVFontDef: copy-past typo fixed.
+
+	LVFontManager: a new getFaceListFiltered() function has been added to get a list of fonts filtered by font family and optionally by language.
+
+2023-01-17  Aleksey Chernov  <valexlin@gmail.com>
+
+	Added unit test to check rendering using generic font families.
+
+2023-01-16  Aleksey Chernov  <valexlin@gmail.com>
+
+	Added new global properties: PROP_GENERIC_*_FONT_FACE to specify generic font family faces.
+
+2023-01-05  Aleksey Chernov  <valexlin@gmail.com>
+
+	Update README.md: update supported formats
+
+2023-01-01  Aleksey Chernov  <valexlin@gmail.com>
+
+	ImportMarkdownDocument(): set document title & build TOC only after successfull html parsing.
+
+	Compile warnings/errors fixed: `strcasecmp` missing prototype.
+
+2022-12-31  Aleksey Chernov  <valexlin@gmail.com>
+
+	Win32 fixes
+
+2022-12-30  Aleksey Chernov  <valexlin@gmail.com>
+
+	LVDocView::ParseDocument(): asan: use-after-free fixed
+
+
+2022-12-31  Aleksey Chernov  <valexlin@gmail.com>
+
+	* Version 0.9.4 released.
+	==========================
+
+	Tag sources with `0.9.4'.
+
+	  Main changes:
+	* Markdown rendering is implemented using the cmark or cmark-gfm library.
+	  To select an implementation, use either the USE_CMARK or USE_CMARK_GFM cmake option.
+	  USE_CMARK to use the built-in cmark (https://github.com/commonmark/cmark),
+	  USE_CMARK_GFM to use the built-in cmark-gfm (https://github.com/github/cmark-gfm).
+	* An old memory leak in the implementation of hash tables has been found and fixed.
+	* allowed to open '*.fb3', '*.epub', '*.doc', '*.docx', '*.odt' inside zip archives.
+
+	See below for other changes.
+
+2022-12-31  Aleksey Chernov  <valexlin@gmail.com>
+
+	LVHashTable::iterator: memory leak fixed
+
+2022-12-31  Aleksey Chernov  <valexlin@gmail.com>
+
+	Markdown support: use 'markdown.css' instead of 'htm.css', set document title by filename.
+
+2022-12-30  Aleksey Chernov  <valexlin@gmail.com>
+
+	Markdown rendering: allow to use either cmark or cmark-gfm
+
+	Add local cmark-gfm (thirdparty/cmark-gfm) to build system.
+
+	Markdown rendering implemented using cmark library.
+
+	Add local cmark (thirdparty/cmark) to build system.
+
+	Added new thirdparty 'cmark-gfm'. cmark-gfm is an extended version of the C reference implementation of CommonMark, a rationalized version of Markdown syntax with a spec. Origin: https://github.com/github/cmark-gfm Last commit: Thu 27 Oct 2022 13:36:03 AWST
+
+	Added new thirdparty 'cmark'. 'cmark' is the C reference implementation of CommonMark, a rationalized version of Markdown syntax with a spec. Origin: https://github.com/commonmark/cmark.git Last commit: Thu Nov 3 08:57:23 2022 -0700
+
+2022-12-27  Aleksey Chernov  <valexlin@gmail.com>
+
+	Update crengine/src/lvstring.cpp: clang compatibility
+
+2022-12-27  Aleksey Chernov  <valexlin@gmail.com>
+
+	LVDocView::loadDocumentInt(): allow to open '*.fb3', '*.epub', '*.doc', '*.docx', '*.odt' inside zip-archives.
+
+
+2022-12-25  Aleksey Chernov  <valexlin@gmail.com>
+
+	* Version 0.9.3 released.
+	==========================
+
+	Tag sources with `0.9.3'.
+
+	  Main changes:
+	* Update epub.css: allows you to display footnotes in epub documents at the bottom of the page.
+	* Fixed sizing of float/inline-block image containers.
+	* Fixed history navigation: clear history navigation tail when saving new position not at end; incorrect forward posistions count.
+
+	See below for other changes.
+
+2022-12-24  Aleksey Chernov  <valexlin@gmail.com>
+
+	Export bookmarks to file: change "Cool Reader 3" signature to "crengine-ng".
+
+	LVDocView::goBack(): Improving code readability; Fixed comments for some functions.
+
+	Fix lString32Collection::erase(): incorrect index out of bounds check
+
+	Fix ldomNavigationHistory: clear history navigation tail when saving new position not at end; incorrect forward posistions count.
+
+2022-03-12  poire-z  <poire-z@users.noreply.github.com>
+
+	Fix sizing of float/inline-block image containers
+	(cherry-picked from https://github.com/koreader/crengine/pull/467)
+
+
+2022-12-18  Aleksey Chernov  <valexlin@gmail.com>
+
+	* Version 0.9.2 released.
+	==========================
+
+	Tag sources with `0.9.2'.
+
+	  Main changes:
+	*  Added crengine/data/hyph/hyph-fr.pattern: French hyphenation patterns
+
+
+2022-12-18  Aleksey Chernov  <valexlin@gmail.com>
+
+	* Version 0.9.1 released.
+	==========================
+
+	Tag sources with `0.9.1'.
+
+	  Main changes:
+	* Following the change to the wording of the CoolReader license, we are also changing the wording of the license to clearly "GPLv2 or later".
+	* Minor fixes: SEGFAULTS, optimizations...
+	* Refactoring
+	* Updated hyphenation dictionaries for most popular languages & also for some other languages. Now we only have GPL compliant dictionaries.
+	* Format of hyphenation dictionaries has been updated: added properties 'title', 'lang', 'lefthyphenmin', 'righthyphenmin' to eliminate hardcoding this data in sources.
+	* Added crengine/Tools/HyphConv/mkpattern.pl: convert TeX hyphenation patterns to xml format.
+	* Added calculation and assignment of SHA256, just like CRC32 for document contents (optional).
+	* LVDocView: added getAvgTextLineHeight() functions to retrieve the average height of a line of text.
+	* Other fixes
+
+	See below for other changes.
+
+2022-12-17  Aleksey Chernov  <valexlin@gmail.com>
+
+	ldomDocument default style: use text color and background color from document properties instead of black and white. This fixes incorrect colors for mathml elements with non-standard color settings.
+
+2022-12-16  Aleksey Chernov  <valexlin@gmail.com>
+
+	Revert part of "Allow for increasing unpacked cache size (and warn when reached)" Only 'storage max uncompressed size factor' stuff reverted.
+
+	Revert "Use factor also in the other tinyNodeCollection constructor (#104)"
+
+	FreeType fallback fonts: don't reduce number of possible distinct sizes for fallback font.
+
+	crengine/src/lvtinydom/lvtinydomutils.cpp: removed unused/obsolete/outdated stuff.
+
+	`struct ldomNodeHandle` moved into `struct ldomNode` as inner
+
+	LVGammaCorrection::getIndex(): set default/initial value for `index` to `LVGammaCorrection::NoCorrectionIndex`
+
+
+	Typo fixed in fb3fmt: geImageTarget() -> getImageTarget()
+
+	Update source file header in crengine/tests/: use the standard GPLv2+ header.
+
+	Update crengine/_clang_format.sh: allow to specify clang-format executable in config file, header added with license information.
+
+	Update AUTHORS: using crengine/Tools/getauthors/collect_authors.pl
+
+	Added script crengine/Tools/getauthors/collect_authors.pl to parse sources files & extract authors.
+
+	The engine has been adapted for the new hyphenation dictionaries.
+
+2022-12-15  Aleksey Chernov  <valexlin@gmail.com>
+
+	Added hyphenation dictionaries for most popular languages & also for some other languages. Added special 'hyph-ru-ru,en-us.pattern' hyphenation dictionary - a union of hyphenation dictionaries for 'ru-RU' and 'en-US' languages. Only dictionaries compliant with GPL was added.
+
+	Update crengine/Tools/HyphConv/mkpattern.pl: fixes, improvements... Added crengine/Tools/HyphConv/mkpattern_dic.pl: text (.dic) hyphenation file converter
+
+	LVFontBoldTransform::getTextWidth(): replace magic const 2048 with MAX_LINE_WIDTH.
+
+	Update crengine/src/lvfont/lvfreetypeface.cpp: 'static lUInt16 char_flags[]' -> 'static const lUInt16 char_flags[]'
+
+	Since `LVCreateFontTransform()` function implementation is lost, declaration of this function also removed.
+
+	Removed unnecessary/obsolete files.
+
+	Update source file header in crengine/Tools/*/: use the standard GPLv2+ header. File authors reconstructed.
+
+	Update source file header in crengine/src/private/: use the standard GPLv2+ header. File authors reconstructed.
+
+	Update source file headers in crengine/src/lvxml/: use the standard GPLv2+ header. File authors reconstructed.
+
+	Update source file headers in crengine/src/lvtinydom/: use the standard GPLv2+ header. File authors reconstructed.
+
+	Update source file headers in crengine/src/lvstream/: use the standard GPLv2+ header. File authors reconstructed.
+
+	Update source file headers in crengine/src/lvimg/: use the standard GPLv2+ header. File authors reconstructed.
+
+	Update source file headers in crengine/src/lvfont/: use the standard GPLv2+ header. File authors reconstructed.
+
+	Update source file headers in crengine/src/lvdrawbuf/: use the standard GPLv2+ header. File authors reconstructed.
+
+	Update crengine/src/locale_data/*/*: Added copyright & license information. crengine/include/fc-lang-data.h: update source URL crengine/src/locale_data/fc-lang-data.c: Update source URL
+
+2022-12-14  Aleksey Chernov  <valexlin@gmail.com>
+
+	Update source file headers in crengine/src/: use the standard GPLv2+ header. File authors reconstructed. mathml_operators.h inherits from its source MPL-2.0.
+
+	Update source file headers in crengine/include/: use the standard GPLv2+ header. File authors reconstructed.
+
+2022-12-13  Aleksey Chernov  <valexlin@gmail.com>
+
+	With the permission of the authors of the CoolReader project, the wording of the license has been changed to a clear "GPLv2 or later" Also updated info about embedded third party components.
+
+2022-09-20  Aleksey Chernov  <valexlin@gmail.com>
+
+	Unit tests updated for new hyphenation dictionaries.
+
+	Updated hardcoded hyphenation dictionaries names in the engine.
+
+2022-09-18  Aleksey Chernov  <valexlin@gmail.com>
+
+	Added a unit test for the HyphMan::getHyphMethodForLang() function.
+
+2022-09-17  Aleksey Chernov  <valexlin@gmail.com>
+
+	Speeded up scanning of a directory with hyphenation dictionaries, as a result, the program starts faster. HyphMethod class refactoring: getSize() method removed, getCount() method renamed to getPatternsCount().
+
+2022-09-17  Aleksey Chernov  <valexlin@gmail.com>
+
+	getHyphMethodForLang() method moved from TextLangMan class to HyphMan class.
+
+2022-08-23  Aleksey Chernov  <valexlin@gmail.com>
+
+	Unittests build error fixed when building shared crengine-ng only.
+
+2022-08-23  Aleksey Chernov  <valexlin@gmail.com>
+
+	* LVDocView:loadDocument(), loadDocumentInt(): start calculating CRC32 and SHA256 only after calling LVDocViewCallback::OnLoadFileStart(), since these operations are not fast. * LVDocView:loadDocument(): removed redundant m_doc_props reassignment.
+
+2022-08-19  Aleksey Chernov  <valexlin@gmail.com>
+
+	cmake project: DEBUG_EXTRA_FLAGS (for clang): add "-fsanitize=undefined", "-fstack-check" bring back
+
+2022-08-17  Aleksey Chernov  <valexlin@gmail.com>
+
+	cmake project: DEBUG_EXTRA_FLAGS (for gcc): "-fstack-check" replaced by "-fstack-clash-protection"
+
+2022-08-17  Aleksey Chernov  <valexlin@gmail.com>
+
+	GitLab CI: added unittests in release build configuration, debug builds compiled with asan.
+
+2022-08-16  Aleksey Chernov  <valexlin@gmail.com>
+
+	src/lvtinydom/lvtinydomutils.cpp: updated comment about keyword separator in extractDocKeywords()
+
+	Because the book's metadata is cached, and the hash sum has been added to that metadata, we must update the cache file format version so that the cache is regenerated.
+
+2022-08-15  Aleksey Chernov  <valexlin@gmail.com>
+
+	unittests: added tests for LVDocView::getFileCRC32() & LVDocView::getFileHash() functions.
+
+	Added calculation and assignment of SHA256, just like CRC32. Also, cached CRC32 and SHA256 are reset when writing to the stream.
+
+2022-08-14  Aleksey Chernov  <valexlin@gmail.com>
+
+	Update CMakeLists.txt in 'Tools' subdirectory to always use crengine-ng library instead of separate source files.
+
+2022-08-14  Aleksey Chernov  <valexlin@gmail.com>
+
+	Add thirdparty/rfc6234-shas/ to build system.
+
+	Added RFC6234 with sources as thirdparty/rfc6234-shas/. All source code is a direct copy of RFC6234 snippets without any modifications. The source code in this RFC is distributed under the terms of the BSD-3-Clause license.
+
+2022-07-31  Aleksey Chernov  <valexlin@gmail.com>
+
+	crhyphman.cpp: HyphDictionaryList::addDefault() fixed: use a different `langTag` for different special algorithms.
+
+2022-07-31  Aleksey Chernov  <valexlin@gmail.com>
+
+	textlang.cpp: removed LANG_STARTS_WITH*** macros for better code readability.
+
+2022-07-30  Aleksey Chernov  <valexlin@gmail.com>
+
+	Added unit tests for TextLangMan::getTextLangCfg() and TextLangMan::setMainLang().
+
+	Removed the `_hyph_dict_table` static variable from textlang.cpp, which actually duplicates the hyphenation data in the 'crengine/data/hyph/' directory. Instead, a directory with hyphenation dictionaries is scanned to obtain this data. As an alternative to this mechanism, language-specific hyphenation dictionary definitions can be manually added using the `HyphMan::addDictionaryItem()` function.
+
+2022-07-24  Aleksey Chernov  <valexlin@gmail.com>
+
+	Page header rendering is tuned for HiDPI screens. Also fixed the overlay of the page text on the page header with a zero top margin.
+
+2022-07-16  Aleksey Chernov  <valexlin@gmail.com>
+
+	LVDocView::propsApply(): copy-past issue fixed: PROP_HIGHLIGHT_BOOKMARK_COLOR_COMMENT -> PROP_HIGHLIGHT_BOOKMARK_COLOR_CORRECTION
+
+2022-07-15  Aleksey Chernov  <valexlin@gmail.com>
+
+	Removed unused/obsolete setting options. Also removed are options that are related/used in the client and not in the engine.
+
+2022-07-10  Aleksey Chernov  <valexlin@gmail.com>
+
+	Added unit test for HyphMan::overrideLeftHyphenMin() & HyphMan::overrideRightHyphenMin() functions.
+
+2022-07-09  Aleksey Chernov  <valexlin@gmail.com>
+
+	Removed left & right hyphenmins arguments from HyphMan::getHyphMethodForDictionary(), HyphMethod::HyphMethod(), TexHyph::TexHyph() since its's not needed anymore. HyphMan class refactored: HyphMan::setLeftHyphenMin() (and `right` too) method renamed to HyphMan::overrideLeftHyphenMin(), HyphMan::getLeftHyphenMin() (and `right` too) to HyphMan::getOverriddenLeftHyphenMin().
+
+	textlang.cpp: removed `left_hyphen_min`, `left_hyphen_min` from `_hyph_dict_table` since now this properties already defined in hyphenation dictionary (*.pattern format).
+
+2022-07-04  Aleksey Chernov  <valexlin@gmail.com>
+
+	HyphMan: Update HyphPatternReader to load new dictionary attributes.
+
+	Update textlang.cpp: correct language names.
+
+	unittests: test hyphenation dictionaries updated: added title, langtag, hyphenmins.
+
+	Hyphenation dictionaries updated: added title, langtag, hyphenmins.
+
+2022-07-03  Aleksey Chernov  <valexlin@gmail.com>
+
+	Update crengine/Tools/HyphConv/mkpattern.pl: add title, langtag, hyphenmin:left, hyphenmin:right to output.
+
+2022-07-02  Aleksey Chernov  <valexlin@gmail.com>
+
+	unittests: add HyphenationTests.GetHyphMethodTest to test HyphMan::getHyphMethodForDictionary() function.
+
+2022-07-01  Aleksey Chernov  <valexlin@gmail.com>
+
+	Tests for hyphenation module added.
+
+	LVGammaCorrection: add modifier `const` for `LVGammaCorrection::NoCorrectionIndex`;                    add static inline my_fabs();
+
+	Update crengine/Tools/HyphConv/mkpattern.pl: skip '%' char in comment section.
+
+2022-06-27  Aleksey Chernov  <valexlin@gmail.com>
+
+	crengine/Tools/HyphConv/mkpattern rewriten in perl.
+
+2022-06-18  Aleksey Chernov  <valexlin@gmail.com>
+
+	Gamma correction tables refactoring
+
+2022-06-10  Aleksey Chernov  <valexlin@gmail.com>
+
+	Allow to use sanitizer for android build
+
+2022-05-22  Aleksey Chernov  <valexlin@gmail.com>
+
+	CRLog: refactoring
+
+2022-05-14  Aleksey Chernov  <valexlin@gmail.com>
+
+	container item info: added packed size info
+
+2022-05-10  Aleksey Chernov  <valexlin@gmail.com>
+
+	Improved unit tests for zip archives: Win32 support added. makeRandomFile() has been rewritten to support the creation of Unicode filenames in Win32.
+
+2022-05-08  Aleksey Chernov  <valexlin@gmail.com>
+
+	LVDocView: log file openning errors.
+
+2022-05-06  Aleksey Chernov  <valexlin@gmail.com>
+
+	Added tests to check locales names detection.
+
+2022-04-22  Aleksey Chernov  <valexlin@gmail.com>
+
+	SIGSEGV fixed in ldomDataStorageManager class. AddressSanitizer: heap-use-after-free
+
+2022-04-21  Aleksey Chernov  <valexlin@gmail.com>
+
+	Added unit test to check LVDocView::getAvgTextLineHeight() function.
+
+	LVDocView: added getAvgTextLineHeight() functions to retrieve the average height of a line of text.
+
+2022-04-03  Aleksey Chernov  <valexlin@gmail.com>
+
+	cmake project: added new option ENABLE_LTO to enable Link Time Optimization (disabled by default).
+
+2022-03-28  Aleksey Chernov  <valexlin@gmail.com>
+
+	Added unit tests to check zip-archives processing.
+
+2022-03-27  Aleksey Chernov  <valexlin@gmail.com>
+
+	Update crengine/src/lvstream/lvstreamutils.cpp: LVPumpStream() function improved: added check result of write operation.
+
+	Update crengine/_clang_format.sh: support more variants of `find' utility.
+
+2022-03-26  Aleksey Chernov  <valexlin@gmail.com>
+
+	Sanitizer error in lvfilestream.cpp fixed:  crengine/src/lvstream/lvfilestream.cpp:391:33: runtime error: load of value 20, which is not a valid value for type 'lvopen_mode_t'
+
+	crengine/Tools/zip-test: build failure fixed.
+
+	Bump version to 0.9.1.alpha1
+
+2022-03-25  Aleksey Chernov  <valexlin@gmail.com>
+
+	crengine/src/lvstream/lvcommoncontaineriteminfo.h: Added missing 'const' modifiers to methods.
+
+	ZIP processing: replaced hardcoded maximum entry name length and maximum extra entry data length with a new macro in ziphdr.h  It is allowed to skip extra entry data if it is too long without stopping the processing of the zip archive.
+
+2022-03-20  Aleksey Chernov  <valexlin@gmail.com>
+
+	Fixed compilation issue for Android.
+
+
+2022-02-10  Aleksey Chernov  <valexlin@gmail.com>
+
+	* Version 0.9.0 released.
+	==========================
+
+	Tag sources with `0.9.0'.
+
+	  Main changes:
+	* Refactoring
+	* Added unit testing functionality
+	* Integrated gitlab CI including unit testing
+	* Win32 support improved
+	* MacOS support fixed
+	* The deprecated BUILD_LITE option has been removed as it is not used or planned to be used
+	* By default, a limited set of font sizes is disabled. Font sizes are only limited by minimum and maximum. The USE_LIMITED_FONT_SIZES_SET option has been completely removed
+	* Other fixes
+
+	See below for other changes.
+
+2022-02-09  Aleksey Chernov  <valexlin@gmail.com>
+
+	clang-analyzer: potential segfaults fixed.
+	mathml.cpp: fixupMathML() fixed that is broken in 659e098dccd26fe3b6456d61b714e9da649fe536
+
+2022-02-06  Aleksey Chernov  <valexlin@gmail.com>
+
+	Added version info to shared library file (Win32 only).
+
+2022-02-05  Aleksey Chernov  <valexlin@gmail.com>
+
+	ZIP64 minor fixes: when finding 'End of central directory record' don't try to lseek outside of file size.
+
+2022-02-04  Aleksey Chernov  <valexlin@gmail.com>
+
+	The deprecated BUILD_LITE option has been removed as it is not used or planned to be used.
+
+2022-01-23  Aleksey Chernov  <valexlin@gmail.com>
+
+	cmake project fixed: compile options for clang tuned, errors fixed.
+
+	Conflict fixed with BSD systems (including macOS) when using function timevalcmp().
+
+	crengine/src/lvstream/ziphdr.h: Warning fixed: anonymous non-C-compatible type given name for linkage purposes by typedef declaration; add a tag name here.
+
+	Sanitizer's fixes: crengine/src/lvstream/lvfilestream.cpp:391:28: runtime error: load of value 20, which is not a valid value for type 'lvopen_mode_t'
+
+	crengine/include/lvtextfm.h: clang warning fixed: anonymous types declared in an anonymous union are an extension.
+
+	Enable cmake testing (ctest) using existing unit tests (using GoogleTest).
+
+2022-01-16  Aleksey Chernov  <valexlin@gmail.com>
+
+	By default, a limited set of font sizes is disabled. Font sizes are only limited by minimum and maximum. The USE_LIMITED_FONT_SIZES_SET option has been completely removed.
+
+	LVDocView::swapToCache(): return operation result.
+
+	Fixed delete directory function on Unix-like platforms.
+
+	InitFontManager(): added a new argument to enable/disable registration of system fonts. This is may be usefull for unit testing.
+
+2022-01-12  Aleksey Chernov  <valexlin@gmail.com>
+
+	lvtinydom: fixed cache cleaning function.
+
+	Removed obsolete testing code.
+
+	SIGSEGV fixed in textlang.cpp
+
+2022-01-11  Aleksey Chernov  <valexlin@gmail.com>
+
+	class lvByteOrderConv is extracted from lvtypes.h into a separate file lvbyteorder.h.
+
+2022-01-05  Aleksey Chernov  <valexlin@gmail.com>
+
+	Added a separate function to free an aligned image buffer in qimagescale. This fixes a crash in Win32.
+
+	Fixed installation procedure for Win32.
+
+	Restored Win32 font functionality, normally used only when FreeType is not available in Win32.
+
+2021-12-30  Aleksey Chernov  <valexlin@gmail.com>
+
+	CMakeLists.txt: tune compile options.
+
+2021-12-29  Aleksey Chernov  <valexlin@gmail.com>
+
+	thirdparty/qimagescale/qimagescale.cpp: fixed compiler warnings.
+
+	thirdparty/chmlib/src/chm_lib.c: fixed compiler warnings.
+
+	crengine/src/lvtextfm.cpp: fixed compiler warnings.
+
+	crengine/src/wordfmt.cpp: fixed compiler warnings.
+
+	crengine/src/lvstring.cpp: fixed compiler warnings.
+
+	crengine/src/lvrend.cpp: fixed compiler warnings.
+
+	crengine/src/epubfmt.cpp: fixed compiler warnings.
+
+	crengine/src/crmathml.cpp: fixed compiler warnings.
+
+	CRFileLogger: date and time format: print date and time in milliseconds (instead of decimilliseconds), fixed compiler warnings.
+
+	crengine/src/textlang.cpp: fixed compiler warnings.
+
+	crengine/src/crhyphman.cpp: fixed compiler warnings.
+
+	crengine/src/crtxtenc.cpp: fixed compiler warnings.
+
+2021-12-28  Aleksey Chernov  <valexlin@gmail.com>
+
+	crengine/src/lvstsheet.cpp: fixed compiler warnings.
+
+	crengine/src/lvtinydom.cpp: fixed compiler warnings.
+
+	crengine/src/lvxml/lvxmlutils.cpp: fixed compiler warnings.
+
+	LVDrawBuf classes: added missing modifier 'const'.
+
+	Compiler warning fixed in src/lvfont/*.*
+
+2021-12-26  Aleksey Chernov  <valexlin@gmail.com>
+
+	Tune compile options in cmake project file.
+
+	Reformat sources using clang-format.
+
+	Fixed compile issue in release build configuration: added missing '#include' statement after header section optimization.
+
+2021-12-25  Aleksey Chernov  <valexlin@gmail.com>
+
+	Reformat header section (tier 2).
+
+	Renaming some header files (adding a prefix) to eliminate potential conflicts with other libraries.
+
+	Copy-paste issue fixed in lvByteOrderConv (typenames in lvtypes.h).
+
+	Reformat header section.
+
+	Unsupported clang options removed.
+
+	Simplifing lstringXX_chunk_t structures.
+
+2021-12-22  Aleksey Chernov  <valexlin@gmail.com>
+
+	More accurate data files installation procedure.
+
+	Restored ability to build under/for MacOS.
+
+2021-12-20  Aleksey Chernov  <valexlin@gmail.com>
+
+	Removed the thirdparty 'unrar' library because it is incompatible with the base license of that library, GPLv2.
+
+2021-12-19  Aleksey Chernov  <valexlin@gmail.com>
+
+	crengine-ng.pc added.
+
+	crengine/Tools: link error fixed when only static libraries used.
+
+	Link error fixed with antiword built-in.
+
+	cmake thirdparty building: replace 'STATIC' with 'OBJECT' to include thirdparty libs into resulting static library.
+
+	Rename 'thirdparty_unman' back to 'thirdparty'.
+
+	Update CMakeLists.txt & Cº to build only engine.
+
+	Hyphenation dictionaries moved from 'cr3gui/data/hyph' to 'crengine/data/hyph'; css from '<coolreader>/cr3qt/data' to 'crengine/data/css'.

@@ -1,0 +1,2746 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SettingsDlg</class>
+ <widget class="QDialog" name="SettingsDlg">
+  <property name="windowModality">
+   <enum>Qt::WindowModality::ApplicationModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>470</width>
+    <height>648</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>433</width>
+    <height>400</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Settings</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="crqtres.qrc">
+    <normaloff>:/icons/action/icons/configure.png</normaloff>:/icons/action/icons/configure.png</iconset>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="currentIndex">
+      <number>1</number>
+     </property>
+     <widget class="QWidget" name="tabWindow">
+      <property name="toolTip">
+       <string>Window options</string>
+      </property>
+      <property name="accessibleName">
+       <string/>
+      </property>
+      <attribute name="title">
+       <string>Window</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_tabWindow">
+       <item>
+        <widget class="QScrollArea" name="scrollAreaWindow">
+         <property name="frameShape">
+          <enum>QFrame::Shape::NoFrame</enum>
+         </property>
+         <property name="widgetResizable">
+          <bool>true</bool>
+         </property>
+         <widget class="QWidget" name="scrollAreaWindowContents">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>416</width>
+            <height>537</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_2">
+           <item>
+            <layout class="QFormLayout" name="formLayout_3">
+             <item row="0" column="0">
+              <widget class="QLabel" name="label_5">
+               <property name="text">
+                <string>Look &amp; feel</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QComboBox" name="cbLookAndFeel"/>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_10">
+               <property name="text">
+                <string>Startup action</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QComboBox" name="cbStartupAction">
+               <item>
+                <property name="text">
+                 <string>Restore session</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Show list of recent books</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Show File Open dialog</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Do nothing</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="label_16">
+               <property name="text">
+                <string>Controls</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <layout class="QVBoxLayout" name="verticalLayout_6">
+               <item>
+                <widget class="QCheckBox" name="cbWindowShowToolbar">
+                 <property name="text">
+                  <string>Show toolbar</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QCheckBox" name="cbWindowShowMenu">
+                 <property name="text">
+                  <string>Show menu</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QCheckBox" name="cbWindowShowScrollbar">
+                 <property name="text">
+                  <string>Show scroll bar</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QCheckBox" name="cbWindowShowStatusBar">
+                 <property name="text">
+                  <string>Show status bar</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QCheckBox" name="cbWindowFixedTabSize">
+                 <property name="text">
+                  <string>Fixed tab size</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item row="3" column="0" colspan="2">
+              <widget class="QLabel" name="label_57">
+               <property name="text">
+                <string>Automatically when selected:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="1">
+              <widget class="QCheckBox" name="cbAutoClipboard">
+               <property name="toolTip">
+                <string>automatically copy text to clipboard when selected</string>
+               </property>
+               <property name="text">
+                <string>Copy to clipboard</string>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="1">
+              <widget class="QCheckBox" name="cbAutoCmdExec">
+               <property name="text">
+                <string>Run command:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="6" column="1">
+              <widget class="QLineEdit" name="cbSelectionCommand">
+               <property name="toolTip">
+                <string>Automatically send selected text to this application.
+%TEXT% will be replaced with the selected text.</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="placeholderText">
+                <string>goldendict %TEXT%, qolibri %TEXT%, etc.</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="cbWindowFullscreen">
+             <property name="text">
+              <string>Fullscreen display</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_2">
+             <property name="orientation">
+              <enum>Qt::Orientation::Vertical</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Policy::Expanding</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tabPage">
+      <attribute name="title">
+       <string>页面</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_tabPage">
+       <item>
+        <widget class="QScrollArea" name="scrollAreaPage">
+         <property name="frameShape">
+          <enum>QFrame::Shape::NoFrame</enum>
+         </property>
+         <property name="widgetResizable">
+          <bool>true</bool>
+         </property>
+         <widget class="QWidget" name="scrollAreaPageContents">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>401</width>
+            <height>883</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_4">
+           <item>
+            <layout class="QFormLayout" name="formLayout_2">
+             <property name="fieldGrowthPolicy">
+              <enum>QFormLayout::FieldGrowthPolicy::AllNonFixedFieldsGrow</enum>
+             </property>
+             <item row="4" column="1">
+              <widget class="QComboBox" name="cbViewMode">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <item>
+                <property name="text">
+                 <string>单页</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>双页</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>滚动视图</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item row="4" column="0">
+              <widget class="QLabel" name="label_3">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text">
+                <string>视图模式</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="0">
+              <widget class="QLabel" name="label_4">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text">
+                <string>上边距</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QComboBox" name="cbMarginTop">
+               <item>
+                <property name="text">
+                 <string>0</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>1</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>2</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>3</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>4</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>5</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>6</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>7</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>8</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>9</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>10</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>11</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>12</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>15</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>20</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>25</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>30</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>40</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>50</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>60</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_58">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text">
+                <string>下边距</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QComboBox" name="cbMarginBottom">
+               <item>
+                <property name="text">
+                 <string>0</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>1</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>2</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>3</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>4</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>5</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>6</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>7</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>8</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>9</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>10</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>11</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>12</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>15</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>20</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>25</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>30</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>40</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>50</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>60</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="label_59">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text">
+                <string>左边距</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QComboBox" name="cbMarginLeft">
+               <item>
+                <property name="text">
+                 <string>0</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>1</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>2</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>3</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>4</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>5</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>6</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>7</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>8</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>9</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>10</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>11</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>12</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>15</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>20</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>25</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>30</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>40</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>50</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>60</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item row="3" column="0">
+              <widget class="QLabel" name="label_60">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text">
+                <string>右边距</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="1">
+              <widget class="QComboBox" name="cbMarginRight">
+               <item>
+                <property name="text">
+                 <string>0</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>1</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>2</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>3</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>4</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>5</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>6</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>7</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>8</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>9</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>10</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>11</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>12</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>15</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>20</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>25</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>30</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>40</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>50</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>60</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_13">
+             <item>
+              <widget class="QLabel" name="label_50">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text">
+                <string>显示页眉/页脚</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="cbShowPageHeader">
+               <item>
+                <property name="text">
+                 <string>无</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>页眉</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>页脚</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="groupBox">
+             <property name="title">
+              <string>页眉元素</string>
+             </property>
+             <layout class="QHBoxLayout" name="headerElementsHLayout">
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_3">
+                <item>
+                 <widget class="QCheckBox" name="cbShowNavbar">
+                  <property name="text">
+                   <string>导航栏</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="cbShowChapterMarks">
+                  <property name="text">
+                   <string>章节标记</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="cbShowBookName">
+                  <property name="text">
+                   <string>书名</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="cbShowPageNumber">
+                  <property name="text">
+                   <string>页码</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="cbShowPageCount">
+                  <property name="text">
+                   <string>总页数</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="cbShowChapterName">
+                  <property name="text">
+                   <string>章节名称</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="cbShowChapterPageNumber">
+                  <property name="text">
+                   <string>章节页码</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="cbShowChapterPageCount">
+                  <property name="text">
+                   <string>章节总页数</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="cbShowPositionPercent">
+                  <property name="text">
+                   <string>位置百分比</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="cbShowClock">
+                  <property name="text">
+                   <string>时钟</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="cbShowBattery">
+                  <property name="text">
+                   <string>电池状态</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QFormLayout" name="headerMarginsFormLayout">
+                <item row="0" column="0">
+                 <widget class="QLabel" name="lblHeaderMarginH">
+                  <property name="toolTip">
+                   <string>页眉文字和进度条的左右边距</string>
+                  </property>
+                  <property name="text">
+                   <string>水平边距</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="1">
+                 <widget class="QSpinBox" name="sbHeaderMarginH">
+                  <property name="toolTip">
+                   <string>页眉文字和进度条的左右边距</string>
+                  </property>
+                  <property name="minimum">
+                   <number>0</number>
+                  </property>
+                  <property name="maximum">
+                   <number>50</number>
+                  </property>
+                  <property name="value">
+                   <number>5</number>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="lblHeaderMarginV">
+                  <property name="toolTip">
+                   <string>页眉内容的上下间距</string>
+                  </property>
+                  <property name="text">
+                   <string>垂直边距</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QSpinBox" name="sbHeaderMarginV">
+                  <property name="toolTip">
+                   <string>页眉内容的上下间距</string>
+                  </property>
+                  <property name="minimum">
+                   <number>0</number>
+                  </property>
+                  <property name="maximum">
+                   <number>20</number>
+                  </property>
+                  <property name="value">
+                   <number>3</number>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="0">
+                 <widget class="QLabel" name="lblNavbarHeight">
+                  <property name="toolTip">
+                   <string>导航栏上章节标记的高度</string>
+                  </property>
+                  <property name="text">
+                   <string>章节标记高度</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="1">
+                 <widget class="QSpinBox" name="sbNavbarHeight">
+                  <property name="toolTip">
+                   <string>导航栏上章节标记的高度</string>
+                  </property>
+                  <property name="minimum">
+                   <number>3</number>
+                  </property>
+                  <property name="maximum">
+                   <number>10</number>
+                  </property>
+                  <property name="value">
+                   <number>5</number>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="0" colspan="2">
+                 <spacer name="headerMarginsVSpacer">
+                  <property name="orientation">
+                   <enum>Qt::Orientation::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_6">
+             <item>
+              <spacer name="horizontalSpacer_5">
+               <property name="orientation">
+                <enum>Qt::Orientation::Horizontal</enum>
+               </property>
+               <property name="sizeType">
+                <enum>QSizePolicy::Policy::Maximum</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>30</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <layout class="QFormLayout" name="formLayout_4">
+               <property name="fieldGrowthPolicy">
+                <enum>QFormLayout::FieldGrowthPolicy::AllNonFixedFieldsGrow</enum>
+               </property>
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_7">
+                 <property name="text">
+                  <string>页眉字体</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <layout class="QHBoxLayout" name="horizontalLayout">
+                 <item>
+                  <widget class="QComboBox" name="cbTitleFontFace"/>
+                 </item>
+                 <item>
+                  <widget class="QComboBox" name="cbTitleFontSize"/>
+                 </item>
+                </layout>
+               </item>
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_11">
+                 <property name="text">
+                  <string>页眉文字颜色</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <layout class="QHBoxLayout" name="horizontalLayout_4">
+                 <item>
+                  <widget class="QPushButton" name="btnHeaderTextColor">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="text">
+                    <string>更改</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QFrame" name="frmHeaderTextColor">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>30</width>
+                     <height>30</height>
+                    </size>
+                   </property>
+                   <property name="autoFillBackground">
+                    <bool>true</bool>
+                   </property>
+                   <property name="frameShape">
+                    <enum>QFrame::Shape::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Shadow::Sunken</enum>
+                   </property>
+                   <property name="lineWidth">
+                    <number>1</number>
+                   </property>
+                   <property name="midLineWidth">
+                    <number>5</number>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QGridLayout" name="gridLayout">
+             <item row="0" column="0">
+              <widget class="QLabel" name="lblFootnotes">
+               <property name="text">
+                <string>脚注</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QComboBox" name="cbFootnotesMode">
+               <item>
+                <property name="text">
+                 <string>隐藏</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>页面底部</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>内联</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>内联块</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>引用</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label">
+               <property name="text">
+                <string>选中颜色</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QPushButton" name="btnSelectionColor">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text">
+                <string>更改</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="2">
+              <widget class="QFrame" name="frmSelectionColor">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>30</width>
+                 <height>30</height>
+                </size>
+               </property>
+               <property name="autoFillBackground">
+                <bool>true</bool>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::Shape::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Shadow::Sunken</enum>
+               </property>
+               <property name="lineWidth">
+                <number>1</number>
+               </property>
+               <property name="midLineWidth">
+                <number>5</number>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="label_40">
+               <property name="text">
+                <string>书签高亮</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QComboBox" name="cbBookmarkHighlightMode">
+               <item>
+                <property name="text">
+                 <string>禁用</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>实心填充</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>下划线</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item row="3" column="0">
+              <widget class="QLabel" name="label_2">
+               <property name="text">
+                <string>批注颜色</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="1">
+              <widget class="QPushButton" name="btnCommentColor">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text">
+                <string>更改</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="2">
+              <widget class="QFrame" name="frmCommentColor">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>30</width>
+                 <height>30</height>
+                </size>
+               </property>
+               <property name="autoFillBackground">
+                <bool>true</bool>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::Shape::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Shadow::Sunken</enum>
+               </property>
+               <property name="lineWidth">
+                <number>1</number>
+               </property>
+               <property name="midLineWidth">
+                <number>5</number>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="0">
+              <widget class="QLabel" name="label_39">
+               <property name="text">
+                <string>修正颜色</string>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="1">
+              <widget class="QPushButton" name="btnCorrectionColor">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text">
+                <string>更改</string>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="2">
+              <widget class="QFrame" name="frmCorrectionColor">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>30</width>
+                 <height>30</height>
+                </size>
+               </property>
+               <property name="autoFillBackground">
+                <bool>true</bool>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::Shape::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Shadow::Sunken</enum>
+               </property>
+               <property name="lineWidth">
+                <number>1</number>
+               </property>
+               <property name="midLineWidth">
+                <number>5</number>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="0" colspan="3">
+              <widget class="QLabel" name="label_42">
+               <property name="text">
+                <string>图片缩放选项</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignmentFlag::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="6" column="0">
+              <widget class="QLabel" name="label_41">
+               <property name="text">
+                <string>内联图片放大</string>
+               </property>
+              </widget>
+             </item>
+             <item row="6" column="1">
+              <widget class="QComboBox" name="cbImageInlineZoominMode">
+               <item>
+                <property name="text">
+                 <string>禁用</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>整数缩放</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>任意缩放</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item row="6" column="2">
+              <widget class="QComboBox" name="cbImageInlineZoominScale">
+               <property name="minimumSize">
+                <size>
+                 <width>60</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <item>
+                <property name="text">
+                 <string>0</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>1</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>2</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>3</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item row="7" column="0">
+              <widget class="QLabel" name="label_64">
+               <property name="text">
+                <string>内联图片缩小</string>
+               </property>
+              </widget>
+             </item>
+             <item row="7" column="1">
+              <widget class="QComboBox" name="cbImageInlineZoomoutMode">
+               <item>
+                <property name="text">
+                 <string>禁用</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>整数缩放</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>任意缩放</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item row="7" column="2">
+              <widget class="QComboBox" name="cbImageInlineZoomoutScale">
+               <property name="minimumSize">
+                <size>
+                 <width>60</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <item>
+                <property name="text">
+                 <string>0</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>1</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>2</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>3</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item row="8" column="0">
+              <widget class="QLabel" name="label_65">
+               <property name="text">
+                <string>块级图片放大</string>
+               </property>
+              </widget>
+             </item>
+             <item row="8" column="1">
+              <widget class="QComboBox" name="cbImageBlockZoominMode">
+               <item>
+                <property name="text">
+                 <string>禁用</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>整数缩放</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>任意缩放</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item row="8" column="2">
+              <widget class="QComboBox" name="cbImageBlockZoominScale">
+               <property name="minimumSize">
+                <size>
+                 <width>60</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <item>
+                <property name="text">
+                 <string>0</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>1</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>2</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>3</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item row="9" column="0">
+              <widget class="QLabel" name="label_53">
+               <property name="text">
+                <string>块级图片缩小</string>
+               </property>
+              </widget>
+             </item>
+             <item row="9" column="1">
+              <widget class="QComboBox" name="cbImageBlockZoomoutMode">
+               <item>
+                <property name="text">
+                 <string>禁用</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>整数缩放</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>任意缩放</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item row="9" column="2">
+              <widget class="QComboBox" name="cbImageBlockZoomoutScale">
+               <property name="minimumSize">
+                <size>
+                 <width>60</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <item>
+                <property name="text">
+                 <string>0</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>1</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>2</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>3</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item row="10" column="0" colspan="3">
+              <widget class="QCheckBox" name="cbImageAutoRotate">
+               <property name="text">
+                <string>自动旋转图片以更好适配</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_4">
+             <property name="orientation">
+              <enum>Qt::Orientation::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tabDefStyle">
+      <attribute name="title">
+       <string>样式</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_tabDefStyle">
+       <item>
+        <widget class="QScrollArea" name="scrollAreaStyles">
+         <property name="frameShape">
+          <enum>QFrame::Shape::NoFrame</enum>
+         </property>
+         <property name="widgetResizable">
+          <bool>true</bool>
+         </property>
+         <widget class="QWidget" name="scrollAreaStylesContents">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>405</width>
+            <height>921</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_5">
+           <item>
+            <layout class="QFormLayout" name="formLayout">
+             <property name="fieldGrowthPolicy">
+              <enum>QFormLayout::FieldGrowthPolicy::AllNonFixedFieldsGrow</enum>
+             </property>
+             <item row="0" column="0">
+              <widget class="QLabel" name="label_6">
+               <property name="text">
+                <string>文字颜色</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <layout class="QHBoxLayout" name="horizontalLayout_11">
+               <item>
+                <widget class="QPushButton" name="btnTextColor">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="text">
+                  <string>更改</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QFrame" name="frmTextColor">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>20</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>30</width>
+                   <height>30</height>
+                  </size>
+                 </property>
+                 <property name="sizeIncrement">
+                  <size>
+                   <width>4</width>
+                   <height>4</height>
+                  </size>
+                 </property>
+                 <property name="baseSize">
+                  <size>
+                   <width>0</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="autoFillBackground">
+                  <bool>true</bool>
+                 </property>
+                 <property name="frameShape">
+                  <enum>QFrame::Shape::StyledPanel</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Shadow::Sunken</enum>
+                 </property>
+                 <property name="lineWidth">
+                  <number>1</number>
+                 </property>
+                 <property name="midLineWidth">
+                  <number>5</number>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_12">
+               <property name="text">
+                <string>默认字体</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <layout class="QHBoxLayout" name="horizontalLayout_14">
+               <item>
+                <widget class="QComboBox" name="cbTextFontFace">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <spacer name="horizontalSpacer_3">
+                 <property name="orientation">
+                  <enum>Qt::Orientation::Horizontal</enum>
+                 </property>
+                 <property name="sizeType">
+                  <enum>QSizePolicy::Policy::Maximum</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item>
+                <widget class="QComboBox" name="cbTextFontSize">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>60</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="baseSize">
+                  <size>
+                   <width>60</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="label_51">
+               <property name="text">
+                <string>字体粗细</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QComboBox" name="cbFontWeightChange">
+               <property name="currentText">
+                <string notr="true"/>
+               </property>
+               <property name="currentIndex">
+                <number>-1</number>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="0">
+              <widget class="QLabel" name="label_19">
+               <property name="text">
+                <string>字体伽马</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="1">
+              <widget class="QComboBox" name="cbFontGamma">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>60</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="baseSize">
+                <size>
+                 <width>60</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="currentIndex">
+                <number>-1</number>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="0">
+              <widget class="QLabel" name="label_52">
+               <property name="text">
+                <string>字体抗锯齿</string>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="1">
+              <widget class="QComboBox" name="cbAntialiasingMode">
+               <property name="currentIndex">
+                <number>-1</number>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="0">
+              <widget class="QLabel" name="label_35">
+               <property name="text">
+                <string>字体微调</string>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="1">
+              <widget class="QComboBox" name="cbFontHinting">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>60</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="baseSize">
+                <size>
+                 <width>60</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <item>
+                <property name="text">
+                 <string>无微调</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>使用字节码</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>自动微调</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item row="7" column="0">
+              <widget class="QLabel" name="label_36">
+               <property name="text">
+                <string>备用字体</string>
+               </property>
+              </widget>
+             </item>
+             <item row="7" column="1">
+              <widget class="QPushButton" name="btnFallbackMan">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text">
+                <string>管理...</string>
+               </property>
+              </widget>
+             </item>
+             <item row="8" column="0">
+              <widget class="QLabel" name="label_54">
+               <property name="text">
+                <string>字体族</string>
+               </property>
+              </widget>
+             </item>
+             <item row="8" column="1">
+              <widget class="QPushButton" name="btnFontFamiliesMan">
+               <property name="text">
+                <string>管理...</string>
+               </property>
+              </widget>
+             </item>
+             <item row="9" column="0">
+              <widget class="QLabel" name="label_14">
+               <property name="text">
+                <string>页面皮肤</string>
+               </property>
+              </widget>
+             </item>
+             <item row="9" column="1">
+              <widget class="QComboBox" name="cbPageSkin">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>60</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="baseSize">
+                <size>
+                 <width>60</width>
+                 <height>0</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item row="10" column="0">
+              <widget class="QLabel" name="label_8">
+               <property name="text">
+                <string>背景颜色</string>
+               </property>
+              </widget>
+             </item>
+             <item row="10" column="1">
+              <layout class="QHBoxLayout" name="horizontalLayout_10">
+               <item>
+                <widget class="QPushButton" name="btnBgColor">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="text">
+                  <string>更改</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QFrame" name="frmBgColor">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>20</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>30</width>
+                   <height>30</height>
+                  </size>
+                 </property>
+                 <property name="autoFillBackground">
+                  <bool>true</bool>
+                 </property>
+                 <property name="frameShape">
+                  <enum>QFrame::Shape::StyledPanel</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Shadow::Sunken</enum>
+                 </property>
+                 <property name="lineWidth">
+                  <number>1</number>
+                 </property>
+                 <property name="midLineWidth">
+                  <number>5</number>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item row="11" column="0">
+              <widget class="QLabel" name="label_45">
+               <property name="text">
+                <string>渲染标志</string>
+               </property>
+              </widget>
+             </item>
+             <item row="11" column="1">
+              <widget class="QComboBox" name="cbRendFlags">
+               <item>
+                <property name="text">
+                 <string>旧版</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>简洁</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>书籍</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>网页（完整）</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item row="12" column="0">
+              <widget class="QLabel" name="label_46">
+               <property name="text">
+                <string>DOM 级别：</string>
+               </property>
+              </widget>
+             </item>
+             <item row="12" column="1">
+              <widget class="QComboBox" name="cbDOMLevel">
+               <item>
+                <property name="text">
+                 <string>旧版</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>最新</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item row="13" column="0">
+              <widget class="QLabel" name="label_47">
+               <property name="text">
+                <string>多语言</string>
+               </property>
+              </widget>
+             </item>
+             <item row="13" column="1">
+              <widget class="QCheckBox" name="cbMultiLang">
+               <property name="text">
+                <string>支持多语言文档</string>
+               </property>
+              </widget>
+             </item>
+             <item row="14" column="0">
+              <widget class="QLabel" name="label_48">
+               <property name="text">
+                <string>连字</string>
+               </property>
+              </widget>
+             </item>
+             <item row="14" column="1">
+              <widget class="QCheckBox" name="cbEnableHyph">
+               <property name="text">
+                <string>启用连字</string>
+               </property>
+              </widget>
+             </item>
+             <item row="15" column="0">
+              <widget class="QLabel" name="label_9">
+               <property name="text">
+                <string>连字</string>
+               </property>
+              </widget>
+             </item>
+             <item row="15" column="1">
+              <widget class="QComboBox" name="cbHyphenation"/>
+             </item>
+             <item row="16" column="0">
+              <widget class="QLabel" name="label_44">
+               <property name="text">
+                <string>文字塑形</string>
+               </property>
+              </widget>
+             </item>
+             <item row="16" column="1">
+              <widget class="QComboBox" name="cbFontShaping">
+               <property name="currentText">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item row="17" column="0">
+              <widget class="QLabel" name="label_13">
+               <property name="text">
+                <string>行间距</string>
+               </property>
+              </widget>
+             </item>
+             <item row="17" column="1">
+              <widget class="QSpinBox" name="sbInterlineSpace">
+               <property name="suffix">
+                <string>%</string>
+               </property>
+               <property name="minimum">
+                <number>60</number>
+               </property>
+               <property name="maximum">
+                <number>150</number>
+               </property>
+               <property name="singleStep">
+                <number>1</number>
+               </property>
+               <property name="value">
+                <number>100</number>
+               </property>
+              </widget>
+             </item>
+             <item row="18" column="0">
+              <widget class="QLabel" name="label_66">
+               <property name="text">
+                <string>空格宽度</string>
+               </property>
+              </widget>
+             </item>
+             <item row="18" column="1">
+              <widget class="QSpinBox" name="sbSpaceWidth">
+               <property name="suffix">
+                <string>%</string>
+               </property>
+               <property name="minimum">
+                <number>10</number>
+               </property>
+               <property name="maximum">
+                <number>500</number>
+               </property>
+               <property name="singleStep">
+                <number>5</number>
+               </property>
+               <property name="value">
+                <number>100</number>
+               </property>
+              </widget>
+             </item>
+             <item row="19" column="0">
+              <widget class="QLabel" name="label_15">
+               <property name="text">
+                <string>最小空格宽度</string>
+               </property>
+              </widget>
+             </item>
+             <item row="19" column="1">
+              <widget class="QSpinBox" name="sbMinSpaceWidth">
+               <property name="suffix">
+                <string>%</string>
+               </property>
+               <property name="minimum">
+                <number>25</number>
+               </property>
+               <property name="maximum">
+                <number>100</number>
+               </property>
+               <property name="singleStep">
+                <number>5</number>
+               </property>
+               <property name="value">
+                <number>70</number>
+               </property>
+              </widget>
+             </item>
+             <item row="20" column="0">
+              <widget class="QLabel" name="label_68">
+               <property name="text">
+                <string>最大字母额外间距</string>
+               </property>
+              </widget>
+             </item>
+             <item row="20" column="1">
+              <widget class="QSpinBox" name="sbMaxLetterSpacing">
+               <property name="suffix">
+                <string>%</string>
+               </property>
+               <property name="minimum">
+                <number>0</number>
+               </property>
+               <property name="maximum">
+                <number>20</number>
+               </property>
+               <property name="singleStep">
+                <number>1</number>
+               </property>
+               <property name="value">
+                <number>0</number>
+               </property>
+              </widget>
+             </item>
+             <item row="21" column="0">
+              <widget class="QLabel" name="label_67">
+               <property name="text">
+                <string>未使用空间阈值</string>
+               </property>
+              </widget>
+             </item>
+             <item row="21" column="1">
+              <widget class="QSpinBox" name="sbUnusedSpaceThreshold">
+               <property name="suffix">
+                <string>%</string>
+               </property>
+               <property name="minimum">
+                <number>0</number>
+               </property>
+               <property name="maximum">
+                <number>20</number>
+               </property>
+               <property name="singleStep">
+                <number>1</number>
+               </property>
+               <property name="value">
+                <number>5</number>
+               </property>
+              </widget>
+             </item>
+             <item row="22" column="0">
+              <widget class="QLabel" name="label_43">
+               <property name="text">
+                <string>字体字距调整</string>
+               </property>
+              </widget>
+             </item>
+             <item row="22" column="1">
+              <widget class="QCheckBox" name="cbFontKerning">
+               <property name="text">
+                <string>启用字体字距调整</string>
+               </property>
+              </widget>
+             </item>
+             <item row="23" column="0">
+              <widget class="QLabel" name="label_18">
+               <property name="text">
+                <string>悬挂标点</string>
+               </property>
+              </widget>
+             </item>
+             <item row="23" column="1">
+              <widget class="QCheckBox" name="cbFloatingPunctuation">
+               <property name="text">
+                <string>启用悬挂标点</string>
+               </property>
+              </widget>
+             </item>
+             <item row="24" column="0">
+              <widget class="QLabel" name="label_38">
+               <property name="text">
+                <string>内部 CSS</string>
+               </property>
+              </widget>
+             </item>
+             <item row="24" column="1">
+              <widget class="QCheckBox" name="cbEnableDocumentStyles">
+               <property name="text">
+                <string>启用文档内部样式</string>
+               </property>
+              </widget>
+             </item>
+             <item row="25" column="0">
+              <widget class="QLabel" name="label_37">
+               <property name="text">
+                <string>.EPUB</string>
+               </property>
+              </widget>
+             </item>
+             <item row="25" column="1">
+              <widget class="QCheckBox" name="cbEnableEmbeddedFonts">
+               <property name="text">
+                <string>启用文档嵌入字体</string>
+               </property>
+              </widget>
+             </item>
+             <item row="26" column="0">
+              <widget class="QLabel" name="label_49">
+               <property name="text">
+                <string>重定义边距</string>
+               </property>
+              </widget>
+             </item>
+             <item row="26" column="1">
+              <widget class="QCheckBox" name="cbIgnoreDocumentMargins">
+               <property name="text">
+                <string>忽略文档边距</string>
+               </property>
+              </widget>
+             </item>
+             <item row="27" column="0">
+              <widget class="QLabel" name="label_17">
+               <property name="text">
+                <string>.TXT files</string>
+               </property>
+              </widget>
+             </item>
+             <item row="27" column="1">
+              <widget class="QCheckBox" name="cbTxtPreFormatted">
+               <property name="text">
+                <string>禁用自动排版</string>
+               </property>
+              </widget>
+             </item>
+             <item row="6" column="0">
+              <widget class="QLabel" name="label_55">
+               <property name="text">
+                <string>TrueType 解释器</string>
+               </property>
+              </widget>
+             </item>
+             <item row="6" column="1">
+              <widget class="QComboBox" name="cbTTInterpreter">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
+               <item>
+                <property name="text">
+                 <string>40</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>38</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>35</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tabMoreStyles">
+      <attribute name="title">
+       <string>样式表</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_8">
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_7">
+         <item>
+          <widget class="QComboBox" name="cbStyleName">
+           <item>
+            <property name="text">
+             <string>默认段落样式</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item>
+          <widget class="QScrollArea" name="scrollArea">
+           <property name="widgetResizable">
+            <bool>true</bool>
+           </property>
+           <widget class="QWidget" name="scrollAreaWidgetContents">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>0</y>
+              <width>393</width>
+              <height>556</height>
+             </rect>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_9">
+             <item>
+              <layout class="QFormLayout" name="formLayout_5">
+               <property name="sizeConstraint">
+                <enum>QLayout::SizeConstraint::SetDefaultConstraint</enum>
+               </property>
+               <property name="fieldGrowthPolicy">
+                <enum>QFormLayout::FieldGrowthPolicy::AllNonFixedFieldsGrow</enum>
+               </property>
+               <property name="formAlignment">
+                <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
+               </property>
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_20">
+                 <property name="text">
+                  <string>对齐方式</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QComboBox" name="cbDefAlignment"/>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_21">
+                 <property name="text">
+                  <string>首行</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QComboBox" name="cbDefFirstLine"/>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="label_27">
+                 <property name="text">
+                  <string>字体大小</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QComboBox" name="cbDefFontSize"/>
+               </item>
+               <item row="3" column="0">
+                <widget class="QLabel" name="label_30">
+                 <property name="text">
+                  <string>字体字形</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QComboBox" name="cbDefFontFace"/>
+               </item>
+               <item row="4" column="0">
+                <widget class="QLabel" name="label_28">
+                 <property name="text">
+                  <string>字体粗细</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="1">
+                <widget class="QComboBox" name="cbDefFontWeight"/>
+               </item>
+               <item row="5" column="0">
+                <widget class="QLabel" name="label_29">
+                 <property name="text">
+                  <string>字体样式</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="1">
+                <widget class="QComboBox" name="cbDefFontStyle"/>
+               </item>
+               <item row="6" column="0">
+                <widget class="QLabel" name="label_31">
+                 <property name="text">
+                  <string>字体颜色</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="1">
+                <widget class="QComboBox" name="cbDefFontColor"/>
+               </item>
+               <item row="7" column="1">
+                <widget class="QComboBox" name="cbDefLineHeight"/>
+               </item>
+               <item row="7" column="0">
+                <widget class="QLabel" name="label_33">
+                 <property name="text">
+                  <string>行间距</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="8" column="1">
+                <widget class="QComboBox" name="cbDefTextDecoration"/>
+               </item>
+               <item row="8" column="0">
+                <widget class="QLabel" name="label_32">
+                 <property name="text">
+                  <string>文字装饰</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="9" column="1">
+                <widget class="QComboBox" name="cbDefVerticalAlign"/>
+               </item>
+               <item row="9" column="0">
+                <widget class="QLabel" name="label_34">
+                 <property name="text">
+                  <string>垂直对齐</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="10" column="1">
+                <widget class="QLabel" name="label_26">
+                 <property name="text">
+                  <string>边距：</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="11" column="0">
+                <widget class="QLabel" name="label_22">
+                 <property name="text">
+                  <string>之前</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="11" column="1">
+                <widget class="QComboBox" name="cbDefMarginBefore"/>
+               </item>
+               <item row="12" column="0">
+                <widget class="QLabel" name="label_23">
+                 <property name="text">
+                  <string>之后</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="12" column="1">
+                <widget class="QComboBox" name="cbDefMarginAfter"/>
+               </item>
+               <item row="13" column="0">
+                <widget class="QLabel" name="label_24">
+                 <property name="text">
+                  <string>左</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="13" column="1">
+                <widget class="QComboBox" name="cbDefMarginLeft"/>
+               </item>
+               <item row="14" column="0">
+                <widget class="QLabel" name="label_25">
+                 <property name="text">
+                  <string>右</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="14" column="1">
+                <widget class="QComboBox" name="cbDefMarginRight"/>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <spacer name="verticalSpacer">
+               <property name="orientation">
+                <enum>Qt::Orientation::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>0</width>
+                 <height>0</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </widget>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBoxGeneratedCSS">
+           <property name="title">
+            <string>展开的 CSS</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_GeneratedCSS">
+            <item>
+             <widget class="QCheckBox" name="cbUseGeneratedCSS">
+              <property name="toolTip">
+               <string>启用后，使用预展开的 CSS 文件替代基于 INI 的样式替换。上方的样式控件将被禁用。</string>
+              </property>
+              <property name="text">
+               <string>使用展开的 CSS 文件</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_GenerateCSS">
+              <item>
+               <widget class="QPushButton" name="btnGenerateCSS">
+                <property name="toolTip">
+                 <string>使用当前设置替换所有样式变量，创建展开的 CSS 文件</string>
+                </property>
+                <property name="text">
+                 <string>展开 CSS...</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btnExpandAllCSS">
+                <property name="toolTip">
+                 <string>为所有格式（fb2、epub、txt 等）创建展开的 CSS 文件</string>
+                </property>
+                <property name="text">
+                 <string>展开所有 CSS</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_GenerateCSS">
+                <property name="orientation">
+                 <enum>Qt::Orientation::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+   <item>
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Orientation::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::StandardButton::Cancel|QDialogButtonBox::StandardButton::Ok</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>cbLookAndFeel</tabstop>
+  <tabstop>cbStartupAction</tabstop>
+  <tabstop>cbWindowShowToolbar</tabstop>
+  <tabstop>cbWindowShowMenu</tabstop>
+  <tabstop>cbWindowShowScrollbar</tabstop>
+  <tabstop>cbWindowShowStatusBar</tabstop>
+  <tabstop>cbWindowFixedTabSize</tabstop>
+  <tabstop>cbAutoClipboard</tabstop>
+  <tabstop>cbAutoCmdExec</tabstop>
+  <tabstop>cbSelectionCommand</tabstop>
+  <tabstop>cbWindowFullscreen</tabstop>
+  <tabstop>cbMarginTop</tabstop>
+  <tabstop>cbMarginBottom</tabstop>
+  <tabstop>cbMarginLeft</tabstop>
+  <tabstop>cbMarginRight</tabstop>
+  <tabstop>cbViewMode</tabstop>
+  <tabstop>cbShowPageHeader</tabstop>
+  <tabstop>cbShowNavbar</tabstop>
+  <tabstop>cbShowChapterMarks</tabstop>
+  <tabstop>cbShowBookName</tabstop>
+  <tabstop>cbShowPageNumber</tabstop>
+  <tabstop>cbShowPageCount</tabstop>
+  <tabstop>cbShowPositionPercent</tabstop>
+  <tabstop>cbShowClock</tabstop>
+  <tabstop>cbShowBattery</tabstop>
+  <tabstop>btnHeaderTextColor</tabstop>
+  <tabstop>cbTitleFontFace</tabstop>
+  <tabstop>cbTitleFontSize</tabstop>
+  <tabstop>cbFootnotesMode</tabstop>
+  <tabstop>btnSelectionColor</tabstop>
+  <tabstop>cbBookmarkHighlightMode</tabstop>
+  <tabstop>btnCommentColor</tabstop>
+  <tabstop>btnCorrectionColor</tabstop>
+  <tabstop>cbImageInlineZoominMode</tabstop>
+  <tabstop>cbImageInlineZoominScale</tabstop>
+  <tabstop>cbImageInlineZoomoutMode</tabstop>
+  <tabstop>cbImageInlineZoomoutScale</tabstop>
+  <tabstop>cbImageBlockZoominMode</tabstop>
+  <tabstop>cbImageBlockZoominScale</tabstop>
+  <tabstop>cbImageBlockZoomoutMode</tabstop>
+  <tabstop>cbImageBlockZoomoutScale</tabstop>
+  <tabstop>btnTextColor</tabstop>
+  <tabstop>cbTextFontFace</tabstop>
+  <tabstop>cbTextFontSize</tabstop>
+  <tabstop>cbFontWeightChange</tabstop>
+  <tabstop>cbFontGamma</tabstop>
+  <tabstop>cbAntialiasingMode</tabstop>
+  <tabstop>cbFontHinting</tabstop>
+  <tabstop>btnFallbackMan</tabstop>
+  <tabstop>btnFontFamiliesMan</tabstop>
+  <tabstop>cbPageSkin</tabstop>
+  <tabstop>btnBgColor</tabstop>
+  <tabstop>cbRendFlags</tabstop>
+  <tabstop>cbDOMLevel</tabstop>
+  <tabstop>cbMultiLang</tabstop>
+  <tabstop>cbEnableHyph</tabstop>
+  <tabstop>cbHyphenation</tabstop>
+  <tabstop>cbFontShaping</tabstop>
+  <tabstop>sbInterlineSpace</tabstop>
+  <tabstop>sbSpaceWidth</tabstop>
+  <tabstop>sbMinSpaceWidth</tabstop>
+  <tabstop>sbMaxLetterSpacing</tabstop>
+  <tabstop>sbUnusedSpaceThreshold</tabstop>
+  <tabstop>cbFontKerning</tabstop>
+  <tabstop>cbFloatingPunctuation</tabstop>
+  <tabstop>cbEnableDocumentStyles</tabstop>
+  <tabstop>cbEnableEmbeddedFonts</tabstop>
+  <tabstop>cbIgnoreDocumentMargins</tabstop>
+  <tabstop>cbTxtPreFormatted</tabstop>
+  <tabstop>cbStyleName</tabstop>
+  <tabstop>scrollArea</tabstop>
+  <tabstop>cbDefAlignment</tabstop>
+  <tabstop>cbDefFirstLine</tabstop>
+  <tabstop>cbDefFontSize</tabstop>
+  <tabstop>cbDefFontFace</tabstop>
+  <tabstop>cbDefFontWeight</tabstop>
+  <tabstop>cbDefFontStyle</tabstop>
+  <tabstop>cbDefFontColor</tabstop>
+  <tabstop>cbDefLineHeight</tabstop>
+  <tabstop>cbDefTextDecoration</tabstop>
+  <tabstop>cbDefVerticalAlign</tabstop>
+  <tabstop>cbDefMarginBefore</tabstop>
+  <tabstop>cbDefMarginAfter</tabstop>
+  <tabstop>cbDefMarginLeft</tabstop>
+  <tabstop>cbDefMarginRight</tabstop>
+ </tabstops>
+ <resources>
+  <include location="crqtres.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>SettingsDlg</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>26</x>
+     <y>708</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>20</x>
+     <y>20</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>SettingsDlg</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>26</x>
+     <y>708</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>20</x>
+     <y>20</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

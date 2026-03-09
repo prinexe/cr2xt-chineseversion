@@ -1,0 +1,13 @@
+{
+	"InstallScripts" : 
+	[
+		"/Users/pri/Desktop/cursor/cr2xt/crengine-ng/build_standalone/cmake_install.cmake",
+		"/Users/pri/Desktop/cursor/cr2xt/crengine-ng/build_standalone/thirdparty/chmlib/cmake_install.cmake",
+		"/Users/pri/Desktop/cursor/cr2xt/crengine-ng/build_standalone/thirdparty/antiword/cmake_install.cmake",
+		"/Users/pri/Desktop/cursor/cr2xt/crengine-ng/build_standalone/thirdparty/qimagescale/cmake_install.cmake",
+		"/Users/pri/Desktop/cursor/cr2xt/crengine-ng/build_standalone/thirdparty/md4c/cmake_install.cmake",
+		"/Users/pri/Desktop/cursor/cr2xt/crengine-ng/build_standalone/thirdparty/md4c/src/cmake_install.cmake",
+		"/Users/pri/Desktop/cursor/cr2xt/crengine-ng/build_standalone/crengine/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

@@ -1,0 +1,19 @@
+
+project(MD4C C)
+
+set(MD_VERSION_MAJOR 0)
+set(MD_VERSION_MINOR 5)
+set(MD_VERSION_RELEASE 2)
+set(MD_VERSION "${MD_VERSION_MAJOR}.${MD_VERSION_MINOR}.${MD_VERSION_RELEASE}")
+
+set(PROJECT_VERSION "${MD_VERSION}")
+set(PROJECT_URL "https://github.com/mity/md4c")
+
+
+add_definitions(
+    -DMD_VERSION_MAJOR=${MD_VERSION_MAJOR}
+    -DMD_VERSION_MINOR=${MD_VERSION_MINOR}
+    -DMD_VERSION_RELEASE=${MD_VERSION_RELEASE}
+)
+
+add_subdirectory(src)

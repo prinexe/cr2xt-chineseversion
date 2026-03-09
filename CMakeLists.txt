@@ -61,6 +61,16 @@ endif()
 
 message(STATUS "cr2xt version: ${CR2XT_VERSION_FULL}")
 
+# On macOS, ensure Homebrew paths are searched when CMAKE_PREFIX_PATH is not set
+if(APPLE AND NOT CMAKE_PREFIX_PATH)
+    if(EXISTS "/opt/homebrew")
+        list(APPEND CMAKE_PREFIX_PATH "/opt/homebrew")
+    endif()
+    if(EXISTS "/usr/local")
+        list(APPEND CMAKE_PREFIX_PATH "/usr/local")
+    endif()
+endif()
+
 # Shared options - these propagate to subdirectories
 set(USE_QT QT6 CACHE STRING "Qt version to use")
 set_property(CACHE USE_QT PROPERTY STRINGS QT5 QT6)

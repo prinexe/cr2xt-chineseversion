@@ -1,0 +1,27 @@
+# You can override the included template(s) by including variable overrides
+# SAST customization: https://docs.gitlab.com/ee/user/application_security/sast/#customizing-the-sast-settings
+# Secret Detection customization: https://docs.gitlab.com/ee/user/application_security/secret_detection/#customizing-settings
+# Dependency Scanning customization: https://docs.gitlab.com/ee/user/application_security/dependency_scanning/#customizing-the-dependency-scanning-settings
+# Note that environment variables can be set in several places
+# See https://docs.gitlab.com/ee/ci/variables/#cicd-variable-precedence
+
+default:
+  image: ubuntu:24.04
+
+stages:
+- test
+sast:
+  stage: test
+include:
+- template: Security/SAST.gitlab-ci.yml
+
+style-check-diff:
+  stage: test
+  allow_failure: true
+  before_script:
+    # install required tools
+    - export DEBIAN_FRONTEND=noninteractive
+    - apt update
+    - apt install -qq -y git clang-format
+  script:
+    - .ci/run-style-check-diff.sh

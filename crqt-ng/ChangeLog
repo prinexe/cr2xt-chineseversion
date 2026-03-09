@@ -1,0 +1,574 @@
+2024-10-23  Aleksey Chernov  <valexlin@gmail.com>
+
+    * Version 1.0.15 released.
+    ==========================
+
+    Tag sources with `1.0.15'.
+
+    See below for changes.
+
+2024-08-07  Aleksey Chernov  <valexlin@gmail.com>
+
+    Added information to the About dialog box about the md4c library. Updated filters for file open dialog: support for crengine-ng's Markdown implementation using the md4c library.
+
+2024-06-24  Aleksey Chernov  <valexlin@gmail.com>
+
+    settings.cpp: added my_abs() function to avoid using fabsf() function.
+
+2024-06-23  Aleksey Chernov  <valexlin@gmail.com>
+
+    In the settings, when displaying font gamma values (floating point numbers), the decimal separator of the current system locale is used, rather than '.' ("C" locale).
+
+2024-05-31  Aleksey Chernov  <valexlin@gmail.com>
+
+    Fixed a SEGFAULT when opening the search dialog if it was previously opened and then closed using the ESC key.
+
+2024-05-30  Aleksey Chernov  <valexlin@gmail.com>
+
+    Added use of the new function LVDocView::setDecimalPointChar() from crengine-ng-0.9.12 to specify the decimal point from the current locale.
+
+
+2024-05-09  Aleksey Chernov  <valexlin@gmail.com>
+
+    * Version 1.0.14 released.
+    ==========================
+
+    Tag sources with `1.0.14'.
+
+    See below for changes.
+
+2024-05-09  Aleksey Chernov  <valexlin@gmail.com>
+
+    Mainwindow main menu: menu role for some menu items is specified.
+
+    Update .gitignore
+
+2024-05-03  Aleksey Chernov  <valexlin@gmail.com>
+
+    Improved handling of the mouse wheel scroll event - added support for
+    intermediate mouse wheel positions, which gives smoother text scrolling when
+    using the appropriate hardware.
+
+2024-02-27  Aleksey Chernov  <valexlin@gmail.com>
+
+    The use of the name “CoolReaderNG” in the source code is excluded, since
+    “CoolReaderNG” is not the name of this program, but the name of a group of
+    projects.
+
+2024-02-16  Aleksey Chernov  <valexlin@gmail.com>
+
+    Update crqt.appdata.xml: typo fixed
+
+2024-02-14  Aleksey Chernov  <valexlin@gmail.com>
+
+    Fixed AppStream metadata: added missing 'developer_name' tag.
+
+
+2024-02-14  Aleksey Chernov  <valexlin@gmail.com>
+
+    * Version 1.0.13 released.
+    ==========================
+
+    Tag sources with `1.0.13'.
+
+    See below for changes.
+
+2024-02-14  Aleksey Chernov  <valexlin@gmail.com>
+
+    Revert "Settings dialog: scrolling has been added to make a large number of controls fit on a small screen."
+    This doesn't work well on Windows OS.
+
+    The deprecated function QMouseEvent::localPos() is not used in Qt 6.
+
+2024-02-13  Aleksey Chernov  <valexlin@gmail.com>
+
+    Changed text selection mode: now, when selecting text by single-clicking the left mouse button and then moving it, the text is selected up to the letter, not the word.
+    And when double-clicking and moving - along the boundaries of the word. That is, like in most applications.
+
+    A separate menu is used for selected text so as not to confuse the user.
+
+    Clicking the left mouse button on a space free from nodes clears the text selection.
+    Code cleanup (unnecessary code, including commented code).
+
+2024-02-11  Aleksey Chernov  <valexlin@gmail.com>
+
+    Don't save text to the global mouse selection buffer if it's not available on the system.
+
+2024-02-05  Aleksey Chernov  <valexlin@gmail.com>
+
+    The user's selection of text is automatically copied to the selection's clipboard (which, on Linux, can be pasted into another application by pressing the middle mouse button).
+
+    Settings dialog: scrolling has been added to make a large number of controls fit on a small screen.
+
+2024-02-04  Aleksey Chernov  <valexlin@gmail.com>
+
+    The window resizing handler has been optimized - in fact, the size changes with a delay with the cancellation of previous events, which eliminates slowdown and stuttering, since changing the window size with the mouse actually generates a large number of such events.
+
+    Update .gitignore
+
+
+2023-10-29  Aleksey Chernov  <valexlin@gmail.com>
+
+    * Version 1.0.12 released.
+    ==========================
+
+    Tag sources with `1.0.12'.
+
+    See below for changes.
+
+2023-10-29  Aleksey Chernov  <valexlin@gmail.com>
+
+    The Windows version no longer uses logging parameters from the configuration file, thereby overriding the parameters specified on the command line.
+
+2023-05-09  Aleksey Chernov  <valexlin@gmail.com>
+
+    Copy-paste issue fixed in getEngineDataDir()
+
+2023-05-02  Aleksey Chernov  <valexlin@gmail.com>
+
+    Update README.md
+
+2023-05-01  Aleksey Chernov  <valexlin@gmail.com>
+
+    Update src/settings.ui: restored tabstop order
+
+    CR3View: added debug messages about external program running.
+
+    Update src/settings.ui: optimizations. SettingsDlg: also move sample window on resize event.
+
+    Refactoring: change properties names, remove C++11 code to bring the code to a single style.
+
+    Update Russian translation
+
+2023-05-01  Aleksey Chernov  <valexlin@gmail.com>
+
+    PROP_APP_SELECTION_AUTO_CMDEXEC ("crui.app.selection.auto.cmdexec") property added to enable/disable the call of an external program when text is selected without the need to clear the PROP_APP_SELECTION_COMMAND property.
+
+2023-04-30  Aleksey Chernov  <valexlin@gmail.com>
+
+    Update src/settings.ui: optimizations
+
+    Added application property PROP_APP_TABS_FIXED_SIZE ("crui.app.tabs.fixedsize") to enable/disable fixed tab width.
+
+    The PROP_APP_WINDOW_TOOLBAR_SIZE ("window.toolbar.size") application property has been renamed to PROP_APP_WINDOW_SHOW_TOOLBAR ("window.toolbar.show") as it was actually used to enable/disable the display of the toolbar. Also implemented is an update of the existing configuration file with the replacement of the old property with a new one.
+
+    CR3View: removed obsolete methods: loadSettings(), saveSettings(), loadHistory(), saveHistory().
+
+    Move application properties defines from settings.h to app-props.h
+
+2023-04-27  Aleksey Chernov  <valexlin@gmail.com>
+
+    Update translations (only source line numbers).
+
+    Fixed compile error introduced in !9.
+
+2023-04-20  Aleksey Chernov  <valexlin@gmail.com>
+
+    Update tools/gentoo/crqt-ng-x.y.z.ebuild
+
+2023-04-20  Ren Tatsumoto  <tatsu@autistici.org>
+
+    Automatically run command when text is selected.
+
+
+2023-04-06  Aleksey Chernov  <valexlin@gmail.com>
+
+    * Version 1.0.11 released.
+    ==========================
+
+    Tag sources with `1.0.11'.
+
+    See below for changes.
+
+2023-04-05  Aleksey Chernov  <valexlin@gmail.com>
+
+    Update .clang-format: added JavaScript language stub to try to suppress clang-format error 'Configuration file(s) do(es) not support JavaScript'.
+
+    Implemented opening links in a new tab by clicking the middle mouse button.
+
+    Update src/i18n/crqt_ru.ts: russian translation for new string in UI.
+
+    Implemented opening a link in a new tab from the context menu.
+
+    Implemented display of the link address in the status bar when hovering the mouse cursor.
+
+2023-03-24  Heimen Stoffels  <vistausss@fastmail.com>
+
+    Added Dutch translation
+
+
+2023-03-18  Aleksey Chernov  <valexlin@gmail.com>
+
+    * Version 1.0.10 released.
+    ==========================
+
+    Tag sources with `1.0.10'.
+
+    See below for changes.
+
+2023-03-13  Aleksey Chernov  <valexlin@gmail.com>
+
+    Fixed not applying window settings when starting the program, for example, "Show scroll bar", "automatically copy when selected".
+
+2023-02-26  Aleksey Chernov  <valexlin@gmail.com>
+
+    Added option: automatically copy text to clipboard when selected. Located in the settings window on the tab "Window".
+
+
+2023-02-11  Aleksey Chernov  <valexlin@gmail.com>
+
+    * Version 1.0.9 released.
+    ==========================
+
+    Tag sources with `1.0.9'.
+
+    Multi-tabbed interface fixes.
+
+    See below for changes.
+
+2023-02-10  Aleksey Chernov  <valexlin@gmail.com>
+
+    BUG fixed: settings are not saved after turning on full screen mode
+
+2023-02-09  Aleksey Chernov  <valexlin@gmail.com>
+
+    MainWindow: disabled the 'movable' property of the TabWidget as there is
+     no trivial way to track reordering of tabs.
+
+    Fixed multi-tabbed interface bugs:
+     * start application in full screen mode;
+     * close the tab before the current one.
+
+2023-02-08  Aleksey Chernov  <valexlin@gmail.com>
+
+    Implemented the ability to open multiple files specified on the command line.
+
+    Added "Open in new tab..." menu item to the "File" menu.
+
+2023-02-07  Aleksey Chernov  <valexlin@gmail.com>
+
+    The "New Tab" menu item has been moved from the "View" menu to the "File" menu.
+    The shortcut key assigned to this action is Ctrl+Shift+T.
+
+
+2023-02-06  Aleksey Chernov  <valexlin@gmail.com>
+
+    * Version 1.0.8 released.
+    ==========================
+
+    Tag sources with `1.0.8'.
+
+    BUG fixes, see below.
+
+2023-02-06  Aleksey Chernov  <valexlin@gmail.com>
+
+    Update README.md: update screenshots, flatpak section.
+
+    bug fixed: when adding a new tab, the background image was not applied.
+
+    Settings, "window" tab: "Open last book" option renamed to "restore session" Settings, win32: abnormally large dialog window fixed.
+
+    Update src/tabscollection.cpp: fix compile error with clang compiler.
+
+
+2023-02-06  Aleksey Chernov  <valexlin@gmail.com>
+
+    * Version 1.0.7 released.
+    ==========================
+
+    Tag sources with `1.0.7'.
+
+      Changes:
+    Fixed a bug that did not allow saving the program settings.
+
+
+2023-02-06  Aleksey Chernov  <valexlin@gmail.com>
+
+    * Version 1.0.6 released.
+    ==========================
+
+    Tag sources with `1.0.6'.
+
+      Main changes:
+    Multi-tabbed interface implemented.
+
+    See below for changes.
+
+2023-02-06  Aleksey Chernov  <valexlin@gmail.com>
+
+    Update src/desktop/crqt.appdata.xml
+
+    Update README.md: added info about new featutes: Markdown format support, Multi-tabbed interface, flatpak package.
+
+    CR3View: when loading a document or applying options, an argument has been added that allows not checking font compatibility.
+    This will eliminate many font incompatibility messages when there are multiple open tabs.
+
+2023-02-05  Aleksey Chernov  <valexlin@gmail.com>
+
+    Optimization and fixes in the implementation of the multi-tabbed interface:
+    * added 'active' property for tabs, i.e. whether the tab is currently active;
+    * for inactive tabs, file loading and window resizing actions are not processed,
+      but saved to the list of scheduled actions;
+    * thus, when loading a saved session, documents for all tabs are not loaded immediately;
+    * when processing scheduled actions, they are first sorted so that the resizing of the document
+      is performed first and only after that the document is loaded, this avoids redundant rendering
+      of the document when loading the session in the presence of the document cache - 1st time when
+      opening document with default size, 2nd time when resizing;
+    * information about the active tab has been added to the session data.
+
+2023-02-04  Aleksey Chernov  <valexlin@gmail.com>
+
+    Set minimum required crengine-ng version to 0.9.7.
+
+    CR3View: applyTextLangMainLang() function added: ensure that language is properly set;
+    setSharedSettings() function added; refactoring.
+    TabsCollection: load & save shared settings (for all views in tabs).
+
+2023-02-02  Aleksey Chernov  <valexlin@gmail.com>
+
+    File personaltypes.py removed: this file (Qt Creator debugger helper) is needed for the crengine-ng library, not just the crqt-ng program.
+
+    Multi-tabbed interface implemented
+
+2023-01-31  Aleksey Chernov  <valexlin@gmail.com>
+
+    SettingsDlg: don't pass CR3View instance, only PropsDef.
+
+    CR3View::isPointInsideSelection(): fix for HiDPI affecting the context menu.
+
+2023-01-30  Aleksey Chernov  <valexlin@gmail.com>
+
+    Removed specific fonts ('Courier New', 'Courier') for element '[Default Monospace]' in style settings
+    for pre-formatted style ('pre' element & other), leaving only "monospace" generic font family.
+    When specifying a real font when forming a css style fragment, the font name is enclosed in quotation marks.
+
+2023-01-27  Aleksey Chernov  <valexlin@gmail.com>
+
+    Implemented portable settings mode.
+    This mode is enabled if a 'portable.mark' file is found in the application directory (the directory that contains the application executable).
+    In this mode, the program settings and cache are saved in the same application directory.
+    Intended mostly for portable Win32 applications.
+
+2023-01-24  Aleksey Chernov  <valexlin@gmail.com>
+
+    Update crqt.desktop & crqt.appdata.xml files to actual data.
+
+    src/CMakeLists.txt: install app icon
+
+    Added option to link with the static version of crengine-ng.
+
+2023-01-22  Aleksey Chernov  <valexlin@gmail.com>
+
+    Update src/desktop/Info.plist.cmake
+
+
+2023-01-22  Aleksey Chernov  <valexlin@gmail.com>
+
+    * Version 1.0.5 released.
+    ==========================
+
+    Tag sources with `1.0.5'.
+
+    See below for changes.
+
+2023-01-19  Aleksey Chernov  <valexlin@gmail.com>
+
+    Set minimum required crengine-ng version to 0.9.6.
+
+2023-01-18  Aleksey Chernov  <valexlin@gmail.com>
+
+    Added settings for generic font families.
+
+2023-01-07  Aleksey Chernov  <valexlin@gmail.com>
+
+    Use XDG Base Directory for program config & cache where applicable (Linux & Unix).
+    For config directory: $XDG_CONFIG_HOME environment variable if set
+     or '~/.config' + '/crui/'.
+    For cache directory: $XDG_CACHE_HOME environment variable if set
+     or '~/.cache' + '/crui/'.
+
+2023-01-01  Aleksey Chernov  <valexlin@gmail.com>
+
+    Restored debug messages in debug build.
+
+
+2022-12-31  Aleksey Chernov  <valexlin@gmail.com>
+
+    * Version 1.0.4 released.
+    ==========================
+
+    Tag sources with `1.0.4'.
+
+    See below for changes.
+
+2022-12-31  Aleksey Chernov  <valexlin@gmail.com>
+
+    About dialog: add info about `cmark` & `cmark-gfm`.
+
+    Use markdown.css for Markdown files (*.md)
+
+2022-12-30  Aleksey Chernov  <valexlin@gmail.com>
+
+    In the file open dialog, do not display file extensions that are disabled in the crengine-ng configuration.
+
+2022-12-25  Aleksey Chernov  <valexlin@gmail.com>
+
+    Update src/i18n/crqt_ru.ts: typo fixed
+
+
+2022-12-25  Aleksey Chernov  <valexlin@gmail.com>
+
+    * Version 1.0.3 released.
+    ==========================
+
+    Tag sources with `1.0.3'.
+
+    See below for changes.
+
+2022-12-24  Aleksey Chernov  <valexlin@gmail.com>
+
+    Mainwindow toolbar: added buttons for navigation through history.
+    These buttons may or may not be enabled depending on whether back/forward is possible.
+    It is highly recommended to update crengine-ng to version 0.9.3 to work correctly.
+
+2022-12-23  Aleksey Chernov  <valexlin@gmail.com>
+
+    Update hotkeys
+
+
+2022-12-22  Aleksey Chernov  <valexlin@gmail.com>
+
+    * Version 1.0.2 released.
+    ==========================
+
+    Tag sources with `1.0.2'.
+
+    See below for changes.
+
+2022-12-22  Aleksey Chernov  <valexlin@gmail.com>
+
+    Toc dialog: do not expand multi-level items by default.
+
+
+2022-12-18  Aleksey Chernov  <valexlin@gmail.com>
+
+    * Version 1.0.1 released.
+    ==========================
+
+    Tag sources with `1.0.1'.
+
+    See below for changes.
+
+2022-12-18  Aleksey Chernov  <valexlin@gmail.com>
+
+    Update about dialog about hyphenation dictionaries.
+
+    Update source file header in cr3qt/: use the standard GPLv2+ header. File authors reconstructed.
+
+    Update _clang_format.sh: allow to specify clang-format executable in config file, header added with license information.
+
+    With the permission of the authors of the CoolReader project, the wording of the license has been changed to a clear "GPLv2 or later" in About dialog.
+
+2022-12-17  Aleksey Chernov  <valexlin@gmail.com>
+
+    With the permission of the authors of the CoolReader project, the wording of the license has been changed to a clear "GPLv2 or later".
+
+2022-09-21  Aleksey Chernov  <valexlin@gmail.com>
+
+    Update about dialog according with changes in crengine-ng-0.9.1.
+
+2022-07-15  Aleksey Chernov  <valexlin@gmail.com>
+
+    Update _clang_format.sh: support more variants of `find' utility.
+
+2022-07-15  Aleksey Chernov  <valexlin@gmail.com>
+
+    Added application specific properties names, that removed from crengine-ng-0.9.1
+
+2022-05-28  Aleksey Chernov  <valexlin@gmail.com>
+
+    Unrelated unit test call removed
+
+
+2022-02-10  Aleksey Chernov  <valexlin@gmail.com>
+
+    * Version 1.0.0 released.
+    ==========================
+
+    Tag sources with `1.0.0'.
+
+    See below for changes.
+
+2022-02-06  Aleksey Chernov  <valexlin@gmail.com>
+
+    Added some options to settings dialog: PROP_SHOW_PAGE_NUMBER, PROP_SHOW_PAGE_COUNT, PROP_SHOW_POS_PERCENT, PROP_FORMAT_MIN_SPACE_CONDENSING_PERCENT.  PROP_SHOW_PAGE_NUMBER - show current page number in status header;  PROP_SHOW_PAGE_COUNT - show total page count in status header;  PROP_SHOW_POS_PERCENT - show current position in percent in status header;  PROP_FORMAT_MIN_SPACE_CONDENSING_PERCENT - to specify minimum space width.
+
+    Settings dialog: style preview window implemented in separate tool window.
+
+    Added version info into executable file (Win32 only).
+
+2022-01-17  Aleksey Chernov  <valexlin@gmail.com>
+
+    Fixed color preview widget (due to some changes in kde-plasma).
+
+2022-01-13  Aleksey Chernov  <valexlin@gmail.com>
+
+    Fixed mouse events handlers in HiDPI environment.
+
+2022-01-05  Aleksey Chernov  <valexlin@gmail.com>
+
+    Hide options in the settings dialog that are not available in the engine.
+
+2021-12-27  Aleksey Chernov  <valexlin@gmail.com>
+
+    Reformat sources using clang-format.
+
+    Updated icon for OS Windows.
+
+    Updated sources to reflect changes in crengine-ng.
+
+    xpm icon updated.
+
+    Added workaround for MacOS: map DPI=72 to 96 before pass to engine.
+
+    Qt6 support added.
+
+2021-12-26  Aleksey Chernov  <valexlin@gmail.com>
+
+    Russian translation: revert shortcut translations.
+
+    About dialog: use default font.
+
+    About dialog: added info about fork, increased font size, dialog size.
+
+    Restored ability to build under/for MacOS.
+
+    Deprecation fixed in CR3View class: `MidButton Q_DECL_ENUMERATOR_DEPRECATED_X("MidButton is deprecated. Use MiddleButton instead") = MiddleButton'
+
+    True HiDPI support. Not tested on MacOS.
+
+    Show book/document title in mainwindow title.
+
+2021-12-24  Aleksey Chernov  <valexlin@gmail.com>
+
+    Russian translation updated.
+
+    strings rename...
+
+    call 'lupdate' always with arguments '-locations absolute'.
+
+    Removed translation files that were always 100% empty.
+
+    Rework about dialog.
+
+    Part of the command line parsing moved from mainwindow.cpp to main.cpp
+
+2021-12-23  Aleksey Chernov  <valexlin@gmail.com>
+
+    Cleanup, rename.
+
+    Renames, simplifing, cleaning. Not complete yet.
+
+2021-12-22  Aleksey Chernov  <valexlin@gmail.com>
+
+    Use external crengine-ng library instead of built-in.

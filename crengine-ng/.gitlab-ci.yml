@@ -1,0 +1,96 @@
+# You can override the included template(s) by including variable overrides
+# SAST customization: https://docs.gitlab.com/ee/user/application_security/sast/#customizing-the-sast-settings
+# Secret Detection customization: https://docs.gitlab.com/ee/user/application_security/secret_detection/#customizing-settings
+# Dependency Scanning customization: https://docs.gitlab.com/ee/user/application_security/dependency_scanning/#customizing-the-dependency-scanning-settings
+# Note that environment variables can be set in several places
+# See https://docs.gitlab.com/ee/ci/variables/#cicd-variable-precedence
+
+variables:
+  DEPLOY_PATH: /tmp/crengine-ng-image/
+  BUILD_WORKDIR: /tmp/crengine-ng-build/
+  BUILD_WORKDIR_LIBUNIBREAK: /tmp/crengine-ng-build/unibreak
+  LIBUNIBREAK_PKGURL: https://github.com/adah1972/libunibreak/releases/download/libunibreak_6_1/libunibreak-6.1.tar.gz
+  LIBUNIBREAK_PKG: libunibreak-6.1.tar.gz
+  LIBUNIBREAK_SRCDIR: libunibreak-6.1
+
+default:
+  image: ubuntu:24.04
+
+stages:
+  - test
+
+sast:
+  stage: test
+include:
+- template: Security/SAST.gitlab-ci.yml
+
+style-check-diff:
+  stage: test
+  allow_failure: true
+  before_script:
+    # install required tools
+    - export DEBIAN_FRONTEND=noninteractive
+    - apt update
+    - apt install -qq -y git clang-format
+  script:
+    - .ci/run-style-check-diff.sh
+
+unittests-ubuntu-debug-asan:
+  stage: test
+  before_script:
+    # install required tools & libraries
+    - export DEBIAN_FRONTEND=noninteractive
+    - apt update
+    - apt install -qq -y build-essential zip cmake curl pkg-config zlib1g-dev libpng-dev libjpeg-dev libwebp-dev libfreetype6-dev libfontconfig1-dev libharfbuzz-dev libfribidi-dev libzstd-dev libutf8proc-dev
+  script:
+    - mkdir -p $BUILD_WORKDIR/debug
+    # build libunibreak (Ubuntu has a very old version installed)
+    - mkdir -p $BUILD_WORKDIR_LIBUNIBREAK
+    - cd $BUILD_WORKDIR_LIBUNIBREAK
+    - curl -f -L $LIBUNIBREAK_PKGURL -o $LIBUNIBREAK_PKG
+    - tar -xzf $LIBUNIBREAK_PKG
+    - cd $LIBUNIBREAK_SRCDIR
+    - ./configure --prefix=$DEPLOY_PATH --enable-static --disable-shared
+    - make -j`nproc`
+    - make install
+    # build crengine-ng
+    - cd $BUILD_WORKDIR/debug
+    - cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=$DEPLOY_PATH -DCRE_BUILD_SHARED=OFF -DCRE_BUILD_STATIC=ON -DWITH_LIBPNG=ON -DWITH_LIBJPEG=ON -DWITH_LIBWEBP=ON -DWITH_FREETYPE=ON -DWITH_HARFBUZZ=ON -DWITH_LIBUNIBREAK=ON -DWITH_FRIBIDI=ON -DWITH_ZSTD=ON -DWITH_UTF8PROC=ON -DUSE_SHASUM=ON -DUSE_CMARK_GFM=OFF -DUSE_MD4C=ON -DENABLE_UNITTESTING=ON -DADD_DEBUG_EXTRA_OPTS=ON $CI_PROJECT_DIR
+    - cmake --build . --parallel
+    - cd crengine/tests
+    - ./unittests --gtest_output="xml:$CI_PROJECT_DIR/report.xml"
+    #- ctest --output-junit $CI_PROJECT_DIR/report.xml
+  artifacts:
+    when: always
+    reports:
+      junit: report.xml
+
+unittests-ubuntu-release:
+  stage: test
+  before_script:
+    # install required tools & libraries
+    - export DEBIAN_FRONTEND=noninteractive
+    - apt update
+    - apt install -qq -y build-essential zip cmake curl pkg-config zlib1g-dev libpng-dev libjpeg-dev libwebp-dev libfreetype6-dev libfontconfig1-dev libharfbuzz-dev libfribidi-dev libzstd-dev libutf8proc-dev
+  script:
+    - mkdir -p $BUILD_WORKDIR/release
+    # build libunibreak (Ubuntu has a very old version installed)
+    - mkdir -p $BUILD_WORKDIR_LIBUNIBREAK
+    - cd $BUILD_WORKDIR_LIBUNIBREAK
+    - curl -f -L $LIBUNIBREAK_PKGURL -o $LIBUNIBREAK_PKG
+    - tar -xzf $LIBUNIBREAK_PKG
+    - cd $LIBUNIBREAK_SRCDIR
+    - ./configure --prefix=$DEPLOY_PATH --enable-static --disable-shared
+    - make -j`nproc`
+    - make install
+    # build crengine-ng
+    - cd $BUILD_WORKDIR/release
+    - cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=$DEPLOY_PATH -DCRE_BUILD_SHARED=OFF -DCRE_BUILD_STATIC=ON -DWITH_LIBPNG=ON -DWITH_LIBJPEG=ON -DWITH_LIBWEBP=ON -DWITH_FREETYPE=ON -DWITH_HARFBUZZ=ON -DWITH_LIBUNIBREAK=ON -DWITH_FRIBIDI=ON -DWITH_ZSTD=ON -DWITH_UTF8PROC=ON -DUSE_SHASUM=ON -DUSE_CMARK_GFM=OFF -DUSE_MD4C=ON -DENABLE_UNITTESTING=ON $CI_PROJECT_DIR
+    - cmake --build . --parallel
+    - cd crengine/tests
+    - ./unittests --gtest_output="xml:$CI_PROJECT_DIR/report.xml"
+    #- ctest --output-junit $CI_PROJECT_DIR/report.xml
+  artifacts:
+    when: always
+    reports:
+      junit: report.xml

@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>FontFamiliesDialog</class>
+ <widget class="QDialog" name="FontFamiliesDialog">
+  <property name="windowModality">
+   <enum>Qt::WindowModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>262</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>Generic font families</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="crqtres.qrc">
+    <normaloff>:/icons/action/icons/configure.png</normaloff>:/icons/action/icons/configure.png</iconset>
+  </property>
+  <property name="modal">
+   <bool>true</bool>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string>Generic font families settings</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QFormLayout" name="formLayout">
+     <item row="0" column="0">
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>Serif</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QComboBox" name="cbSerifFace">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>Sans-Serif</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QComboBox" name="cbSansSerifFace">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_4">
+       <property name="text">
+        <string>Cursive</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QComboBox" name="cbCursiveFace">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="label_5">
+       <property name="text">
+        <string>Fantasy</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QComboBox" name="cbFantasyFace">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="label_6">
+       <property name="text">
+        <string>Monospace</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QComboBox" name="cbMonospaceFace">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>1</width>
+       <height>2</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="crqtres.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>FontFamiliesDialog</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>254</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>157</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>FontFamiliesDialog</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>316</x>
+     <y>260</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cbSerifFace</sender>
+   <signal>currentTextChanged(QString)</signal>
+   <receiver>FontFamiliesDialog</receiver>
+   <slot>slot_serif_currectTextChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>240</x>
+     <y>46</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>188</x>
+     <y>117</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cbSansSerifFace</sender>
+   <signal>currentTextChanged(QString)</signal>
+   <receiver>FontFamiliesDialog</receiver>
+   <slot>slot_sansSerif_currectTextChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>240</x>
+     <y>78</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>188</x>
+     <y>117</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cbCursiveFace</sender>
+   <signal>currentTextChanged(QString)</signal>
+   <receiver>FontFamiliesDialog</receiver>
+   <slot>slot_cursive_currectTextChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>240</x>
+     <y>110</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>188</x>
+     <y>117</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cbFantasyFace</sender>
+   <signal>currentTextChanged(QString)</signal>
+   <receiver>FontFamiliesDialog</receiver>
+   <slot>slot_fantasy_currectTextChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>240</x>
+     <y>142</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>188</x>
+     <y>117</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cbMonospaceFace</sender>
+   <signal>currentTextChanged(QString)</signal>
+   <receiver>FontFamiliesDialog</receiver>
+   <slot>slot_monospace_currectTextChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>240</x>
+     <y>174</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>188</x>
+     <y>117</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>slot_serif_currectTextChanged(QString)</slot>
+  <slot>slot_sansSerif_currectTextChanged(QString)</slot>
+  <slot>slot_cursive_currectTextChanged(QString)</slot>
+  <slot>slot_fantasy_currectTextChanged(QString)</slot>
+  <slot>slot_monospace_currectTextChanged(QString)</slot>
+ </slots>
+</ui>

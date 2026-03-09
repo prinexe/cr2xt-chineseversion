@@ -4,7 +4,7 @@ E-book to XTC format converter based on Cool Reader and crengine.
 
 ## About
 
-**cr2xt-chineseversion** 是基于原版 [cr2xt](https://github.com/CrazyCoder/cr2xt) 深度定制的中文特供版本。
+**cr2xt-chineseversion** 是基于原版 [cr2xt](https://github.com/CrazyCoder/cr2xt) 修改过的基础汉化版本
 
 ### ✨ 本地化与新特性 (Chinese Version Features)
 
